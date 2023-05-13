@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-US">
+
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Muhhamad Affan Hasby</title>
@@ -24,257 +25,327 @@
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-95RZW7EHNP"></script>
 	<script>
-	  window.dataLayer = window.dataLayer || [];
-  
-	  function gtag() {
-		dataLayer.push(arguments);
-	  }
-	  gtag('js', new Date());
-  
-	  gtag('config', 'G-95RZW7EHNP');
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+
+		gtag('config', 'G-95RZW7EHNP');
 	</script>
 
 	<!-- Crisp Chat -->
-	<script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="5bf17a29-af7e-4252-b873-ba0e9dec8437";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+	<script type="text/javascript">
+		// Fungsi untuk menampilkan jendela chat Crisp
+		function openChat() {
+			$crisp.push(["do", "chat:open"]);
+		}
+	</script>
+
+	<!-- Masukkan script Crisp Chat di bawah ini -->
+	<script type="text/javascript">
+		window.$crisp = [];
+		window.CRISP_WEBSITE_ID = "5bf17a29-af7e-4252-b873-ba0e9dec8437";
+
+		(function () {
+			d = document;
+			s = d.createElement("script");
+			s.src = "https://client.crisp.chat/l.js";
+			s.async = 1;
+			d.getElementsByTagName("head")[0].appendChild(s);
+		})();
+	</script>
 
 </head>
 
 <body>
 
-<!-- Preloader -->
-<div id="preloader">
-	<div class="outer">
-		<!-- Google Chrome -->
-		<div class="infinityChrome">
-			<div></div>
-			<div></div>
-			<div></div>
-		</div>
+	<!-- Preloader -->
+	<div id="preloader">
+		<div class="outer">
+			<!-- Google Chrome -->
+			<div class="infinityChrome">
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
 
-		<!-- Safari and others -->
-		<div class="infinity">
-			<div>
-				<span></span>
+			<!-- Safari and others -->
+			<div class="infinity">
+				<div>
+					<span></span>
+				</div>
+				<div>
+					<span></span>
+				</div>
+				<div>
+					<span></span>
+				</div>
 			</div>
-			<div>
-				<span></span>
-			</div>
-			<div>
-				<span></span>
-			</div>
+			<!-- Stuff -->
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="goo-outer">
+				<defs>
+					<filter id="goo">
+						<feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+						<feColorMatrix in="blur" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+						<feBlend in="SourceGraphic" in2="goo" />
+					</filter>
+				</defs>
+			</svg>
 		</div>
-		<!-- Stuff -->
-		<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="goo-outer">
-			<defs>
-				<filter id="goo">
-					<feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
-					<feColorMatrix in="blur" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
-					<feBlend in="SourceGraphic" in2="goo" />
-				</filter>
-			</defs>
-		</svg>
 	</div>
-</div>
 
-<!-- mobile header -->
-<header class="mobile-header-1">
-	<div class="container">
-		<!-- menu icon -->
-		<div class="menu-icon d-inline-flex mr-4">
-			<button>
-				<span></span>
-			</button>
+	<!-- mobile header -->
+	<header class="mobile-header-1">
+		<div class="container">
+			<!-- menu icon -->
+			<div class="menu-icon d-inline-flex mr-4">
+				<button>
+					<span></span>
+				</button>
+			</div>
+			<!-- logo image -->
+			<div class="site-logo">
+				<a href="index.html">
+					<img src="images/logo.svg" alt="Hasby" />
+				</a>
+			</div>
 		</div>
+	</header>
+
+	<!-- desktop header -->
+	<header class="desktop-header-1 d-flex align-items-start flex-column">
+
 		<!-- logo image -->
 		<div class="site-logo">
 			<a href="index.html">
 				<img src="images/logo.svg" alt="Hasby" />
 			</a>
 		</div>
-	</div>
-</header>
 
-<!-- desktop header -->
-<header class="desktop-header-1 d-flex align-items-start flex-column">
-	
-	<!-- logo image -->
-	<div class="site-logo">
-		<a href="index.html">
-			<img src="images/logo.svg" alt="Hasby" />
-		</a>
-	</div>
-	
-	<!-- main menu -->
-	<nav>
-		<ul class="vertical-menu scrollspy">
-			<li class="active"><a href="#home"><i class="icon-home"></i>Home</a></li>
-			<li><a href="#about"><i class="icon-user-following"></i>About</a></li>
-			<li><a href="#services"><i class="icon-briefcase"></i>My Journey</a></li>
-			<li><a href="#experience"><i class="icon-graduation"></i>Experience</a></li>
-			<li><a href="#works"><i class="icon-layers"></i>Works</a></li>
-			<li><a href="#blog"><i class="icon-note"></i>Blog</a></li>
-			<li><a href="#contact"><i class="icon-bubbles"></i>Contact</a></li>
-		</ul>
-	</nav>
-	
-	<!-- site footer -->
-	<div class="footer">
-		<!-- copyright text -->
-		<span class="copyright">© 2022 Affan Hasby.</span>
-	</div>
+		<!-- main menu -->
+		<nav>
+			<ul class="vertical-menu scrollspy">
+				<li class="active"><a href="#home"><i class="icon-home"></i>Home</a></li>
+				<li><a href="#about"><i class="icon-user-following"></i>About</a></li>
+				<li><a href="#services"><i class="icon-briefcase"></i>My Journey</a></li>
+				<li><a href="#experience"><i class="icon-graduation"></i>Experience</a></li>
+				<li><a href="#works"><i class="icon-layers"></i>Works</a></li>
+				<li><a href="#blog"><i class="icon-note"></i>Blog</a></li>
+				<!-- <li><a href="#contact"><i class="icon-bubbles"></i>Contact</a></li> -->
+			</ul>
+		</nav>
 
-</header>
-
-<!-- main layout -->
-<main class="content">
-	
-	<!-- section home -->
-	<section id="home" class="home d-flex align-items-center">
-		<div class="container">
-
-			<!-- intro -->
-			<div class="intro">
-				<!-- avatar image -->
-				<img src="images/profil1.svg" alt="Hasby" class="mb-4" />
-
-				<!-- info -->
-				<h1 class="mb-2 mt-0">Affan Hasby</h1>
-				<span>I'm a <span class="text-rotating">Software Quality Assurance Lead Infra - Core at Stockbit, MBA Student</span></span>
-
-				<!-- social icons -->
-				<ul class="social-icons light list-inline mb-0 mt-4">
-					<!-- <li class="list-inline-item"><a href="https://www.instagram.com/affanhasby"><i class="fab fa-instagram"></i></a></li> -->
-					<li class="list-inline-item"><a href="https://github.com/affanhasby"><i class="fab fa-github"></i></a></li>
-					<li class="list-inline-item"><a href="https://www.linkedin.com/in/affanhasby"><i class="fab fa-linkedin"></i></a></li>
-					<li class="list-inline-item"><a href="https://dribbble.com/affanhasby"><i class="fab fa-dribbble"></i></a></li>
-				</ul>
-
-				<!-- buttons -->
-				<div class="mt-4">
-					<a href="#contact" class="btn btn-default">Hire me</a>
-				</div>
-			</div>
-			
-			<!-- scroll down mouse wheel -->
-			<div class="scroll-down">
-				<a href="#about" class="mouse-wrapper">
-					<span>Scroll Down</span>
-					<span class="mouse">
-						<span class="wheel"></span>
-					</span>
-				</a>
-			</div>
-
-			<!-- parallax layers -->
-			<div class="parallax" data-relative-input="true">
-
-				<svg width="27" height="29" data-depth="0.3" class="layer p1" xmlns="http://www.w3.org/2000/svg"><path d="M21.15625.60099c4.37954 3.67487 6.46544 9.40612 5.47254 15.03526-.9929 5.62915-4.91339 10.30141-10.2846 12.25672-5.37122 1.9553-11.3776.89631-15.75715-2.77856l2.05692-2.45134c3.50315 2.93948 8.3087 3.78663 12.60572 2.22284 4.297-1.5638 7.43381-5.30209 8.22768-9.80537.79387-4.50328-.8749-9.08872-4.37803-12.02821L21.15625.60099z" fill="#FFD15C" fill-rule="evenodd"/></svg>
-
-				<svg width="26" height="26" data-depth="0.2" class="layer p2" xmlns="http://www.w3.org/2000/svg"><path d="M13 3.3541L2.42705 24.5h21.1459L13 3.3541z" stroke="#FF4C60" stroke-width="3" fill="none" fill-rule="evenodd"/></svg>
-
-				<svg width="30" height="25" data-depth="0.3" class="layer p3" xmlns="http://www.w3.org/2000/svg"><path d="M.1436 8.9282C3.00213 3.97706 8.2841.92763 14.00013.92796c5.71605.00032 10.9981 3.04992 13.85641 8 2.8583 4.95007 2.8584 11.0491-.00014 16.00024l-2.77128-1.6c2.28651-3.96036 2.28631-8.84002.00011-12.8002-2.2862-3.96017-6.5124-6.40017-11.08513-6.4-4.57271.00018-8.79872 2.43984-11.08524 6.4002l-2.77128-1.6z" fill="#44D7B6" fill-rule="evenodd"/></svg>
-
-				<svg width="15" height="23" data-depth="0.6" class="layer p4" xmlns="http://www.w3.org/2000/svg"><rect transform="rotate(30 9.86603 10.13397)" x="7" width="3" height="25" rx="1.5" fill="#FFD15C" fill-rule="evenodd"/></svg>
-
-				<svg width="15" height="23" data-depth="0.2" class="layer p5" xmlns="http://www.w3.org/2000/svg"><rect transform="rotate(30 9.86603 10.13397)" x="7" width="3" height="25" rx="1.5" fill="#6C6CE5" fill-rule="evenodd"/></svg>
-
-				<svg width="49" height="17" data-depth="0.5" class="layer p6" xmlns="http://www.w3.org/2000/svg"><g fill="#FF4C60" fill-rule="evenodd"><path d="M.5 16.5c0-5.71709 2.3825-10.99895 6.25-13.8567 3.8675-2.85774 8.6325-2.85774 12.5 0C23.1175 5.50106 25.5 10.78292 25.5 16.5H23c0-4.57303-1.90625-8.79884-5-11.08535-3.09375-2.28652-6.90625-2.28652-10 0C4.90625 7.70116 3 11.92697 3 16.5H.5z"/><path d="M23.5 16.5c0-5.71709 2.3825-10.99895 6.25-13.8567 3.8675-2.85774 8.6325-2.85774 12.5 0C46.1175 5.50106 48.5 10.78292 48.5 16.5H46c0-4.57303-1.90625-8.79884-5-11.08535-3.09375-2.28652-6.90625-2.28652-10 0-3.09375 2.28651-5 6.51232-5 11.08535h-2.5z"/></g></svg>
-
-				<svg width="26" height="26" data-depth="0.4" class="layer p7" xmlns="http://www.w3.org/2000/svg"><path d="M13 22.6459L2.42705 1.5h21.1459L13 22.6459z" stroke="#FFD15C" stroke-width="3" fill="none" fill-rule="evenodd"/></svg>
-
-				<svg width="19" height="21" data-depth="0.3" class="layer p8" xmlns="http://www.w3.org/2000/svg"><rect transform="rotate(-40 6.25252 10.12626)" x="7" width="3" height="25" rx="1.5" fill="#6C6CE5" fill-rule="evenodd"/></svg>
-
-				<svg width="30" height="25" data-depth="0.3" data-depth-y="-1.30" class="layer p9" xmlns="http://www.w3.org/2000/svg"><path d="M29.8564 16.0718c-2.85854 4.95114-8.1405 8.00057-13.85654 8.00024-5.71605-.00032-10.9981-3.04992-13.85641-8-2.8583-4.95007-2.8584-11.0491.00014-16.00024l2.77128 1.6c-2.28651 3.96036-2.28631 8.84002-.00011 12.8002 2.2862 3.96017 6.5124 6.40017 11.08513 6.4 4.57271-.00018 8.79872-2.43984 11.08524-6.4002l2.77128 1.6z" fill="#6C6CE5" fill-rule="evenodd"/></svg>
-
-				<svg width="47" height="29" data-depth="0.2" class="layer p10" xmlns="http://www.w3.org/2000/svg"><g fill="#44D7B6" fill-rule="evenodd"><path d="M46.78878 17.19094c-1.95535 5.3723-6.00068 9.52077-10.61234 10.8834-4.61167 1.36265-9.0893-.26708-11.74616-4.27524-2.65686-4.00817-3.08917-9.78636-1.13381-15.15866l2.34923.85505c-1.56407 4.29724-1.2181 8.92018.90705 12.12693 2.12514 3.20674 5.70772 4.5107 9.39692 3.4202 3.68921-1.0905 6.92581-4.40949 8.48988-8.70673l2.34923.85505z"/><path d="M25.17585 9.32448c-1.95535 5.3723-6.00068 9.52077-10.61234 10.8834-4.61167 1.36264-9.0893-.26708-11.74616-4.27525C.16049 11.92447-.27182 6.14628 1.68354.77398l2.34923.85505c-1.56407 4.29724-1.2181 8.92018.90705 12.12692 2.12514 3.20675 5.70772 4.5107 9.39692 3.4202 3.68921-1.0905 6.92581-4.40948 8.48988-8.70672l2.34923.85505z"/></g></svg>
-
-				<svg width="33" height="20" data-depth="0.5" class="layer p11" xmlns="http://www.w3.org/2000/svg"><path d="M32.36774.34317c.99276 5.63023-1.09332 11.3614-5.47227 15.03536-4.37895 3.67396-10.3855 4.73307-15.75693 2.77837C5.76711 16.2022 1.84665 11.53014.8539 5.8999l3.15139-.55567c.7941 4.50356 3.93083 8.24147 8.22772 9.8056 4.29688 1.56413 9.10275.71673 12.60554-2.2227C28.34133 9.98771 30.01045 5.4024 29.21635.89884l3.15139-.55567z" fill="#FFD15C" fill-rule="evenodd"/></svg>
-
-			</div>
+		<!-- site footer -->
+		<div class="footer">
+			<!-- copyright text -->
+			<span class="copyright">© 2022 Affan Hasby.</span>
 		</div>
-		
-	</section>
 
-	<!-- section about -->
-	<section id="about">
+	</header>
 
-		<div class="container">
-			
-			<!-- section title -->
-			<h2 class="section-title wow fadeInUp">About Me</h2>
+	<!-- main layout -->
+	<main class="content">
 
-			<div class="spacer" data-height="60"></div>
-			
-			<div class="row">
+		<!-- section home -->
+		<section id="home" class="home d-flex align-items-center">
+			<div class="container">
 
-				<div class="col-md-3">
-					<div class="text-center text-md-left">
-						<!-- avatar image -->
-						<img src="images/profil2.png" alt="Hasby" />
+				<!-- intro -->
+				<div class="intro">
+					<!-- avatar image -->
+					<img src="images/profil1.svg" alt="Hasby" class="mb-4" />
+
+					<!-- info -->
+					<h1 class="mb-2 mt-0">Affan Hasby</h1>
+					<span><span class="text-rotating">Software Quality Assurance, MBA Trailblazer-in-Progress, Always seeking new
+							challenges and growth opportunities, Let's connect and inspire each other! ✨</span></span>
+
+					<!-- social icons -->
+					<ul class="social-icons light list-inline mb-0 mt-4">
+						<!-- <li class="list-inline-item"><a href="https://www.instagram.com/affanhasby"><i class="fab fa-instagram"></i></a></li> -->
+						<li class="list-inline-item"><a href="https://github.com/affanhasby"><i class="fab fa-github"></i></a></li>
+						<li class="list-inline-item"><a href="https://www.linkedin.com/in/affanhasby"><i
+									class="fab fa-linkedin"></i></a></li>
+						<li class="list-inline-item"><a href="https://dribbble.com/affanhasby"><i class="fab fa-dribbble"></i></a>
+						</li>
+					</ul>
+
+					<!-- buttons -->
+					<div class="mt-4">
+						<a href="#" onclick="openChat(); return false;" class="btn btn-default">Hire me</a>
 					</div>
-					<div class="spacer d-md-none d-lg-none" data-height="30"></div>
 				</div>
 
-				<div class="col-md-9 triangle-left-md triangle-top-sm">
-					<div class="rounded bg-white shadow-dark padding-30">
-						<div class="row">
-							<div class="col-md-6">
-								<!-- about text -->
-								<p>I am a Software Quality Assurance Lead Infra - Core at Stockbit. Fueled by creativity and passion, I look forward to creating living masterpiece at every opportunity I get. With wide range of experience, I have proven Interpersonal and leadership skills coupled with an analytical mindset enabling quick decision making and problem solving abilities. Moreover I am Digital Product enthusiast. </p>
-								<div class="mt-3">
-									<a href="" class="btn btn-default">Download CV</a>
-								</div>
-								<div class="spacer d-md-none d-lg-none" data-height="30"></div>
-							</div>
-							<div class="col-md-6">
-								<!-- skill item -->
-								<div class="skill-item">
-									<div class="skill-info clearfix">
-										<h4 class="float-left mb-3 mt-0">Product & Project Management</h4>
-										<span class="float-right">80%</span>
-									</div>
-									<div class="progress">
-										<div class="progress-bar data-background" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80" data-color="#FFD15C">
-										</div>
-									</div>
-									<div class="spacer" data-height="20"></div>
-								</div>
+				<!-- scroll down mouse wheel -->
+				<div class="scroll-down">
+					<a href="#about" class="mouse-wrapper">
+						<span>Scroll Down</span>
+						<span class="mouse">
+							<span class="wheel"></span>
+						</span>
+					</a>
+				</div>
 
-								<!-- skill item -->
-								<div class="skill-item">
-									<div class="skill-info clearfix">
-										<h4 class="float-left mb-3 mt-0">UX Research</h4>
-										<span class="float-right">85%</span>
-									</div>
-									<div class="progress">
-										<div class="progress-bar data-background" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="85" data-color="#FF4C60">
-										</div>
-									</div>
-									<div class="spacer" data-height="20"></div>
-								</div>
+				<!-- parallax layers -->
+				<div class="parallax" data-relative-input="true">
 
-								<!-- skill item -->
-								<div class="skill-item">
-									<div class="skill-info clearfix">
-										<h4 class="float-left mb-3 mt-0">Software Quality Assurance</h4>
-										<span class="float-right">90%</span>
+					<svg width="27" height="29" data-depth="0.3" class="layer p1" xmlns="http://www.w3.org/2000/svg">
+						<path
+							d="M21.15625.60099c4.37954 3.67487 6.46544 9.40612 5.47254 15.03526-.9929 5.62915-4.91339 10.30141-10.2846 12.25672-5.37122 1.9553-11.3776.89631-15.75715-2.77856l2.05692-2.45134c3.50315 2.93948 8.3087 3.78663 12.60572 2.22284 4.297-1.5638 7.43381-5.30209 8.22768-9.80537.79387-4.50328-.8749-9.08872-4.37803-12.02821L21.15625.60099z"
+							fill="#FFD15C" fill-rule="evenodd" /></svg>
+
+					<svg width="26" height="26" data-depth="0.2" class="layer p2" xmlns="http://www.w3.org/2000/svg">
+						<path d="M13 3.3541L2.42705 24.5h21.1459L13 3.3541z" stroke="#FF4C60" stroke-width="3" fill="none"
+							fill-rule="evenodd" /></svg>
+
+					<svg width="30" height="25" data-depth="0.3" class="layer p3" xmlns="http://www.w3.org/2000/svg">
+						<path
+							d="M.1436 8.9282C3.00213 3.97706 8.2841.92763 14.00013.92796c5.71605.00032 10.9981 3.04992 13.85641 8 2.8583 4.95007 2.8584 11.0491-.00014 16.00024l-2.77128-1.6c2.28651-3.96036 2.28631-8.84002.00011-12.8002-2.2862-3.96017-6.5124-6.40017-11.08513-6.4-4.57271.00018-8.79872 2.43984-11.08524 6.4002l-2.77128-1.6z"
+							fill="#44D7B6" fill-rule="evenodd" /></svg>
+
+					<svg width="15" height="23" data-depth="0.6" class="layer p4" xmlns="http://www.w3.org/2000/svg">
+						<rect transform="rotate(30 9.86603 10.13397)" x="7" width="3" height="25" rx="1.5" fill="#FFD15C"
+							fill-rule="evenodd" /></svg>
+
+					<svg width="15" height="23" data-depth="0.2" class="layer p5" xmlns="http://www.w3.org/2000/svg">
+						<rect transform="rotate(30 9.86603 10.13397)" x="7" width="3" height="25" rx="1.5" fill="#6C6CE5"
+							fill-rule="evenodd" /></svg>
+
+					<svg width="49" height="17" data-depth="0.5" class="layer p6" xmlns="http://www.w3.org/2000/svg">
+						<g fill="#FF4C60" fill-rule="evenodd">
+							<path
+								d="M.5 16.5c0-5.71709 2.3825-10.99895 6.25-13.8567 3.8675-2.85774 8.6325-2.85774 12.5 0C23.1175 5.50106 25.5 10.78292 25.5 16.5H23c0-4.57303-1.90625-8.79884-5-11.08535-3.09375-2.28652-6.90625-2.28652-10 0C4.90625 7.70116 3 11.92697 3 16.5H.5z" />
+							<path
+								d="M23.5 16.5c0-5.71709 2.3825-10.99895 6.25-13.8567 3.8675-2.85774 8.6325-2.85774 12.5 0C46.1175 5.50106 48.5 10.78292 48.5 16.5H46c0-4.57303-1.90625-8.79884-5-11.08535-3.09375-2.28652-6.90625-2.28652-10 0-3.09375 2.28651-5 6.51232-5 11.08535h-2.5z" />
+						</g>
+					</svg>
+
+					<svg width="26" height="26" data-depth="0.4" class="layer p7" xmlns="http://www.w3.org/2000/svg">
+						<path d="M13 22.6459L2.42705 1.5h21.1459L13 22.6459z" stroke="#FFD15C" stroke-width="3" fill="none"
+							fill-rule="evenodd" /></svg>
+
+					<svg width="19" height="21" data-depth="0.3" class="layer p8" xmlns="http://www.w3.org/2000/svg">
+						<rect transform="rotate(-40 6.25252 10.12626)" x="7" width="3" height="25" rx="1.5" fill="#6C6CE5"
+							fill-rule="evenodd" /></svg>
+
+					<svg width="30" height="25" data-depth="0.3" data-depth-y="-1.30" class="layer p9"
+						xmlns="http://www.w3.org/2000/svg">
+						<path
+							d="M29.8564 16.0718c-2.85854 4.95114-8.1405 8.00057-13.85654 8.00024-5.71605-.00032-10.9981-3.04992-13.85641-8-2.8583-4.95007-2.8584-11.0491.00014-16.00024l2.77128 1.6c-2.28651 3.96036-2.28631 8.84002-.00011 12.8002 2.2862 3.96017 6.5124 6.40017 11.08513 6.4 4.57271-.00018 8.79872-2.43984 11.08524-6.4002l2.77128 1.6z"
+							fill="#6C6CE5" fill-rule="evenodd" /></svg>
+
+					<svg width="47" height="29" data-depth="0.2" class="layer p10" xmlns="http://www.w3.org/2000/svg">
+						<g fill="#44D7B6" fill-rule="evenodd">
+							<path
+								d="M46.78878 17.19094c-1.95535 5.3723-6.00068 9.52077-10.61234 10.8834-4.61167 1.36265-9.0893-.26708-11.74616-4.27524-2.65686-4.00817-3.08917-9.78636-1.13381-15.15866l2.34923.85505c-1.56407 4.29724-1.2181 8.92018.90705 12.12693 2.12514 3.20674 5.70772 4.5107 9.39692 3.4202 3.68921-1.0905 6.92581-4.40949 8.48988-8.70673l2.34923.85505z" />
+							<path
+								d="M25.17585 9.32448c-1.95535 5.3723-6.00068 9.52077-10.61234 10.8834-4.61167 1.36264-9.0893-.26708-11.74616-4.27525C.16049 11.92447-.27182 6.14628 1.68354.77398l2.34923.85505c-1.56407 4.29724-1.2181 8.92018.90705 12.12692 2.12514 3.20675 5.70772 4.5107 9.39692 3.4202 3.68921-1.0905 6.92581-4.40948 8.48988-8.70672l2.34923.85505z" />
+						</g>
+					</svg>
+
+					<svg width="33" height="20" data-depth="0.5" class="layer p11" xmlns="http://www.w3.org/2000/svg">
+						<path
+							d="M32.36774.34317c.99276 5.63023-1.09332 11.3614-5.47227 15.03536-4.37895 3.67396-10.3855 4.73307-15.75693 2.77837C5.76711 16.2022 1.84665 11.53014.8539 5.8999l3.15139-.55567c.7941 4.50356 3.93083 8.24147 8.22772 9.8056 4.29688 1.56413 9.10275.71673 12.60554-2.2227C28.34133 9.98771 30.01045 5.4024 29.21635.89884l3.15139-.55567z"
+							fill="#FFD15C" fill-rule="evenodd" /></svg>
+
+				</div>
+			</div>
+
+		</section>
+
+		<!-- section about -->
+		<section id="about">
+
+			<div class="container">
+
+				<!-- section title -->
+				<h2 class="section-title wow fadeInUp">About Me</h2>
+
+				<div class="spacer" data-height="60"></div>
+
+				<div class="row">
+
+					<div class="col-md-3">
+						<div class="text-center text-md-left">
+							<!-- avatar image -->
+							<img src="images/profil2.png" alt="Hasby" />
+						</div>
+						<div class="spacer d-md-none d-lg-none" data-height="30"></div>
+					</div>
+
+					<div class="col-md-9 triangle-left-md triangle-top-sm">
+						<div class="rounded bg-white shadow-dark padding-30">
+							<div class="row">
+								<div class="col-md-6">
+									<!-- about text -->
+									<p>I am a Software Quality Assurance professional at Stockbit, driven by creativity and a passion for
+										delivering exceptional digital products. With a diverse range of experience in the industry, I
+										possess strong interpersonal and leadership skills, allowing me to excel in collaborative
+										environments. My analytical mindset enables me to make quick, informed decisions and tackle
+										challenges with ease. </p>
+									<p>As a Digital Product enthusiast, I am always eager to seize new opportunities and create living
+										masterpieces that make a meaningful impact. I am committed to continuous learning and growth,
+										staying up-to-date with the latest industry trends and best practices to ensure the highest quality
+										standards in my work. </p>
+									<div class="mt-3">
+										<a href="" class="btn btn-default">Download CV</a>
 									</div>
-									<div class="progress">
-										<div class="progress-bar data-background" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="90" data-color="#6C6CE5">
+									<div class="spacer d-md-none d-lg-none" data-height="30"></div>
+								</div>
+								<div class="col-md-6">
+									<!-- skill item -->
+									<div class="skill-item">
+										<div class="skill-info clearfix">
+											<h4 class="float-left mb-3 mt-0">Product & Project Management</h4>
+											<span class="float-right">80%</span>
+										</div>
+										<div class="progress">
+											<div class="progress-bar data-background" role="progressbar" aria-valuemin="0" aria-valuemax="100"
+												aria-valuenow="80" data-color="#FFD15C">
+											</div>
+										</div>
+										<div class="spacer" data-height="20"></div>
+									</div>
+
+									<!-- skill item -->
+									<div class="skill-item">
+										<div class="skill-info clearfix">
+											<h4 class="float-left mb-3 mt-0">UX Research</h4>
+											<span class="float-right">85%</span>
+										</div>
+										<div class="progress">
+											<div class="progress-bar data-background" role="progressbar" aria-valuemin="0" aria-valuemax="100"
+												aria-valuenow="85" data-color="#FF4C60">
+											</div>
+										</div>
+										<div class="spacer" data-height="20"></div>
+									</div>
+
+									<!-- skill item -->
+									<div class="skill-item">
+										<div class="skill-info clearfix">
+											<h4 class="float-left mb-3 mt-0">Software Quality Assurance</h4>
+											<span class="float-right">90%</span>
+										</div>
+										<div class="progress">
+											<div class="progress-bar data-background" role="progressbar" aria-valuemin="0" aria-valuemax="100"
+												aria-valuenow="90" data-color="#6C6CE5">
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
+
 				</div>
+				<!-- row end -->
 
-			</div>
-			<!-- row end -->
+				<!-- <div class="spacer" data-height="70"></div> -->
 
-			<!-- <div class="spacer" data-height="70"></div> -->
-			
-			<!-- <div class="row">
+				<!-- <div class="row">
 				
 				<div class="col-md-3 col-sm-6">
 					
@@ -325,495 +396,616 @@
 
 			</div> -->
 
-		</div>
-		
-	</section>
-	
-	<!-- section services -->
-	<section id="services">
+			</div>
 
-		<div class="container">
-			
-			<!-- section title -->
-			<h2 class="section-title wow fadeInUp">My Journey</h2>
+		</section>
 
-			<div class="spacer" data-height="60"></div>
-			
-			<div class="row">
+		<!-- section services -->
+		<section id="services">
 
-				<div class="col-md-4">
-					<!-- service box -->
-					<div class="service-box rounded data-background padding-30 text-center shadow-blue" data-color="#">
-						<img src="images/stock.svg" alt="Stockbit" />
-						<h3 class="mb-3 mt-0">Software Quality Assurance</h3>
-						<p class="mb-0">Stockbit</p>
+			<div class="container">
+
+				<!-- section title -->
+				<h2 class="section-title wow fadeInUp">My Journey</h2>
+
+				<div class="spacer" data-height="60"></div>
+
+				<div class="row">
+
+					<div class="col-md-4">
+						<!-- service box -->
+						<div class="service-box rounded data-background padding-30 text-center shadow-blue" data-color="#">
+							<img src="images/stock.svg" alt="Stockbit" />
+							<h3 class="mb-3 mt-0">Software Quality Assurance</h3>
+							<p class="mb-0">Stockbit</p>
+						</div>
+						<div class="spacer d-md-none d-lg-none" data-height="30"></div>
 					</div>
-					<div class="spacer d-md-none d-lg-none" data-height="30"></div>
+
+					<div class="col-md-4">
+						<!-- service box -->
+						<div class="service-box rounded data-background padding-30 text-center shadow-blue" data-color="#">
+							<img src="images/cxo.svg" alt="CXO CT Corp" />
+							<h3 class="mb-3 mt-0">Product Manager</h3>
+							<p class="mb-0">CXO CT Corp</p>
+						</div>
+						<div class="spacer d-md-none d-lg-none" data-height="30"></div>
+					</div>
+
+					<div class="col-md-4">
+						<!-- service box -->
+						<div class="service-box rounded data-background padding-30 text-center shadow-blue" data-color="#">
+							<img src="images/telkom.svg" alt="Telkom Indonesia" />
+							<h3 class="mb-3 mt-0">Front-End Web Developer</h3>
+							<p class="mb-0">Telkom Indonesia</p>
+						</div>
+						<div class="spacer d-md-none d-lg-none" data-height="30"></div>
+					</div>
+
 				</div>
 
-				<div class="col-md-4">
-					<!-- service box -->
-					<div class="service-box rounded data-background padding-30 text-center shadow-blue" data-color="#">
-						<img src="images/cxo.svg" alt="CXO CT Corp" />
-						<h3 class="mb-3 mt-0">Product Manager</h3>
-						<p class="mb-0">CXO CT Corp</p>
-					</div>
-					<div class="spacer d-md-none d-lg-none" data-height="30"></div>
-				</div>
-
-				<div class="col-md-4">
-					<!-- service box -->
-					<div class="service-box rounded data-background padding-30 text-center shadow-blue" data-color="#">
-						<img src="images/telkom.svg" alt="Telkom Indonesia" />
-						<h3 class="mb-3 mt-0">Front-End Web Developer</h3>
-						<p class="mb-0">Telkom Indonesia</p>
-					</div>
-					<div class="spacer d-md-none d-lg-none" data-height="30"></div>
+				<div class="mt-5 text-center">
+					<p class="mb-0">Looking for an exciting job opportunity to offer me? <a href="#"
+							onclick="openChat(); return false;">Click here</a> to get in touch! 👋</p>
 				</div>
 
 			</div>
 
-			<div class="mt-5 text-center">
-				<p class="mb-0">Job offer? <a href="#contact">Click here</a> to contact me! 👋</p>
+		</section>
+
+		<!-- section experience -->
+		<section id="experience">
+
+			<div class="container">
+
+				<!-- section title -->
+				<h2 class="section-title wow fadeInUp">Experience</h2>
+
+				<div class="spacer" data-height="60"></div>
+
+				<div class="row">
+
+					<div class="col-md-6">
+
+						<!-- timeline wrapper -->
+						<div class="timeline edu bg-white rounded shadow-dark padding-30 overflow-hidden">
+
+							<!-- timeline item -->
+							<div class="timeline-container wow fadeInUp">
+								<div class="content">
+									<span class="time">2023 - 2024</span>
+									<h3 class="title">Master of Business Administration - MBA at Telkom University</h3>
+									<p style="margin-bottom: 16px;">Embarking on an enriching journey to elevate my business acumen and
+										strategic mindset, pursuing an MBA at Telkom University has been an invaluable experience. Through
+										rigorous coursework and dynamic case studies, I've honed my skills in leadership, problem-solving,
+										and data-driven decision-making. Engaging with a diverse network of classmates and professors, I've
+										gained unique insights into various industries and global markets.</p>
+									<P>As I continue to learn and evolve, I am eager to apply my newfound knowledge and expertise to make
+										a positive impact in my professional endeavors, leveraging the power of business strategies to drive
+										growth and innovation.</p>
+								</div>
+							</div>
+
+							<!-- timeline item -->
+							<div class="timeline-container wow fadeInUp" data-wow-delay="0.2s">
+								<div class="content">
+									<span class="time">2017 - 2021</span>
+									<h3 class="title">Bachelor of Computer Science at Telkom University</h3>
+									<p>Earned a Bachelor of Computer Science degree from the esteemed Telkom University, acquiring a
+										well-rounded education with a strong foundation in various key disciplines. The comprehensive
+										curriculum included courses such as Information Systems, which provided a deep understanding of data
+										management and analysis; Software Design and Analysis, where I honed my skills in evaluating and
+										refining software systems; Computer Networks, which facilitated my mastery of data communication and
+										networking principles; and Software Development, where I learned to create and implement
+										high-quality, scalable software solutions. This diverse academic background has equipped me with the
+										knowledge and expertise to excel in the ever-evolving field of computer science.</p>
+								</div>
+							</div>
+
+							<!-- timeline item -->
+							<div class="timeline-container wow fadeInUp" data-wow-delay="0.4s">
+								<div class="content">
+									<span class="time">Apr 2021 - Sep 2021</span>
+									<h3 class="title">Bootcamp Full-stack Web Development at Binar Academy</h3>
+									<p>Participated in an immersive Full-stack Web Development Bootcamp at the renowned Binar Academy,
+										diving deep into cutting-edge technologies and methodologies. The enriching curriculum covered an
+										array of topics, such as mastering the ReactJS and NodeJS frameworks for seamless web development;
+										designing robust application architectures and information structures utilizing MVC and MVR
+										paradigms; optimizing Redux for efficient state management; leveraging CI/CD for streamlined
+										development and deployment processes; and implementing Agile methodologies to foster adaptability,
+										collaboration, and continuous improvement in software projects. This intensive bootcamp experience
+										has significantly elevated my skills as a full-stack web developer, ready to contribute to
+										innovative and ambitious projects.</p>
+								</div>
+							</div>
+
+							<!-- timeline item -->
+							<div class="timeline-container wow fadeInUp" data-wow-delay="0.6s">
+								<div class="content">
+									<span class="time">May 2021 - August 2021</span>
+									<h3 class="title">Bootcamp UI/UX Design at Productzilla</h3>
+									<p>Completed an immersive UI/UX Design Bootcamp at Productzilla, acquiring a profound understanding of
+										User Experience concepts and their impact in the industry. Gained valuable insights into conducting
+										UX research and analysis to derive effective solutions tailored to user needs. Grasped the
+										fundamental principles of system design, facilitating the translation of solutions into visually
+										appealing and functional designs. Additionally, acquired a comprehensive understanding of the vital
+										roles of UX-related professionals in the industry, fostering the ability to assemble the ideal team
+										for successful product or business development. This intensive bootcamp experience has equipped me
+										with the necessary skills to excel in UI/UX design, making a tangible impact on product experiences
+										and user satisfaction.</p>
+								</div>
+							</div>
+
+							<!-- main line -->
+							<span class="line"></span>
+
+						</div>
+
+					</div>
+
+					<div class="col-md-6">
+
+						<!-- responsive spacer -->
+						<div class="spacer d-md-none d-lg-none" data-height="30"></div>
+
+						<!-- timeline wrapper -->
+						<div class="timeline exp bg-white rounded shadow-dark padding-30 overflow-hidden">
+
+							<!-- timeline item -->
+							<div class="timeline-container wow fadeInUp">
+								<div class="content">
+									<span class="time">Feb 2023 - Now</span>
+									<h3 class="title">Lead Software Quality Assurance Infra - Core at Stockbit</h3>
+									<ul>
+										<li>Accountable for maintaining exceptional quality standards across three primary platforms:
+											Android, iOS, and Web.</li>
+										<li>Efficiently estimate, prioritize, strategize, and synchronize all testing-related activities.
+										</li>
+										<li>Thoroughly review and assess the quality of test cases developed and the testing conducted by
+											team members for each assignment.</li>
+										<li>Design and implement effective Regression testing cycles to ensure optimal performance.</li>
+										<li>Actively collaborate with Engineering, UI/UX, and Product Management teams to achieve seamless
+											integration.</li>
+										<li>Generate, oversee, and communicate bug reports, fostering strong communication and teamwork.
+										</li>
+										<li>Develop and maintain a comprehensive quality assurance framework that encompasses the entire
+											software development lifecycle, ensuring consistent quality and performance.</li>
+										<li>Continuously improve testing processes and methodologies by staying up-to-date with industry
+											trends, tools, and best practices.</li>
+										<li>Mentor and guide QA team members to enhance their skills and performance, fostering a culture of
+											continuous learning and growth.</li>
+										<li>Monitor, track, and report on key quality metrics, using data-driven insights to drive
+											improvements and inform decision-making.</li>
+										<li>Facilitate root cause analysis of defects and collaborate with cross-functional teams to
+											implement corrective and preventive measures.</li>
+										<li>Implement and manage automated testing tools and strategies to increase testing efficiency and
+											coverage, reducing manual testing efforts.</li>
+										<li>Coordinate with the release management team to ensure seamless deployments, minimizing
+											production issues and downtime.</li>
+										<li>Work closely with stakeholders to understand and prioritize their requirements, ensuring the
+											delivered software meets or exceeds expectations.</li>
+									</ul>
+								</div>
+							</div>
+
+
+							<!-- timeline item -->
+							<div class="timeline-container wow fadeInUp" data-wow-delay="0.2s">
+								<div class="content">
+									<span class="time">Mar 2022 - Jan 2023</span>
+									<h3 class="title">Quality Assurance Tester at Stockbit</h3>
+									<ul>
+										<li>Quality Assurance Tester Core - Infra for iOS platform Stockbit</li>
+										<li>Responsible for guaranteeing that the application design system adheres to the highest industry
+											standards.</li>
+										<li>Meticulously review and evaluate system specifications to ensure accuracy and compliance.</li>
+										<li>Collaborate closely with QA Engineers and QA Analysts to create innovative strategies and
+											comprehensive test plans.</li>
+										<li>Execute well-defined test cases and thoroughly analyze results to identify areas for
+											improvement.</li>
+										<li>Maintain detailed logs to chronicle testing phases and detected defects for future reference.
+										</li>
+										<li>Report any bugs or errors to the development teams, facilitating efficient resolutions.</li>
+										<li>Contribute valuable insights and feedback to improve overall application performance.</li>
+										<li>Conduct rigorous post-release and post-implementation testing to guarantee seamless user
+											experiences.</li>
+										<li>Collaborate with cross-functional teams to maintain exceptional quality standards throughout the
+											entire software development lifecycle.</li>
+										<li>Experience in agile development methodologies, such as Scrum, enabling seamless collaboration
+											with team members throughout the project lifecycle.</li>
+										<li>Familiarity with continuous integration and continuous deployment (CI/CD) processes, ensuring
+											rapid delivery of high-quality software.</li>
+										<li>Excellent problem-solving and analytical skills, enabling quick identification and resolution of
+											software defects.</li>
+										<li>Strong communication skills to effectively interact with developers, project managers, and other
+											stakeholders.</li>
+										<li>Proactive in staying up-to-date with the latest industry trends, tools, and best practices in
+											software quality assurance.</li>
+									</ul>
+								</div>
+							</div>
+
+							<!-- timeline item -->
+							<div class="timeline-container wow fadeInUp" data-wow-delay="0.4s">
+								<div class="content">
+									<span class="time">Nov 2021 - Mar 2022</span>
+									<h3 class="title">IT Project Management at KB Bukopin</h3>
+									<ul>
+										<li>Successfully managed and delivered high-impact projects, including Sanction Screening, Website
+											Revamp, Digital Banking Overhaul, 3D Secure E-Commerce Implementation, and Contactless Credit
+											Rollout.</li>
+										<li>Demonstrated strong project management skills, effectively handling time, scope, and budget
+											constraints to ensure successful project completion.</li>
+										<li>Led weekly meetings with vendors to proactively monitor and evaluate project progress, fostering
+											a collaborative environment and maintaining open communication channels.</li>
+										<li>Produced comprehensive and insightful reports for senior management, highlighting ongoing
+											project milestones, achievements, and areas for improvement.</li>
+									</ul>
+								</div>
+							</div>
+
+							<!-- timeline item -->
+							<div class="timeline-container wow fadeInUp" data-wow-delay="0.6s">
+								<div class="content">
+									<span class="time">Jun 2020 - Oct 2021</span>
+									<h3 class="title">Product Manager Intern at CXO CT Corp</h3>
+									<ul>
+										<li>Effectively oversee product implementation, ensuring consistent progress and timely delivery.
+										</li>
+										<li>Conduct in-depth research on innovative features to enhance product offerings and stay ahead of
+											market trends.</li>
+										<li>Execute comprehensive usability testing for new products, gathering valuable user feedback and
+											identifying opportunities for improvement.</li>
+										<li>Seamlessly integrate usability studies, market research, and competitor analysis into product
+											requirements, driving informed decision-making.</li>
+										<li>Foster open communication with stakeholders and cross-functional leads to align on product
+											vision and strategic direction.</li>
+										<li>Expertly prioritize product development initiatives, balancing business objectives and customer
+											needs to deliver impactful solutions.</li>
+									</ul>
+								</div>
+							</div>
+
+							<!-- timeline item -->
+							<div class="timeline-container wow fadeInUp" data-wow-delay="0.8s">
+								<div class="content">
+									<span class="time">Aug 2020 - Jan 2021</span>
+									<h3 class="title">Front-End Web Developer at Telkom Indonesia</h3>
+									<ul>
+										<li>Expertly utilize markup languages, including HTML, to craft visually appealing and user-friendly
+											web experiences.</li>
+										<li>Innovate mobile-centric features that enhance user engagement and accessibility.</li>
+										<li>Actively collaborate with back-end developers and web designers, seamlessly integrating design
+											and functionality for optimal usability.</li>
+										<li>Meticulously author functional requirement documents and comprehensive guides to support project
+											development.</li>
+										<li>Offer coding and troubleshooting assistance to back-end developers, ensuring streamlined project
+											execution.</li>
+										<li>Diligently perform, debug, and resolve issues to maintain high-quality web performance.</li>
+										<li>Engage in collaborative web development using cutting-edge tools like GitHub and Trello,
+											fostering an efficient and productive team environment.</li>
+										<li>Spearhead the creation of VirtualPBX and OASISLAB web projects for Telkom, showcasing technical
+											prowess and innovative design solutions.</li>
+										<li>In addition to the aforementioned skills, I also demonstrate creative expertise as the designer
+											of the OASISLAB logo. This showcases my ability to blend technical knowledge and artistic prowess,
+											further enhancing my value as a dynamic Frontend Web Developer.</li>
+									</ul>
+								</div>
+							</div>
+
+							<!-- timeline item -->
+							<div class="timeline-container wow fadeInUp" data-wow-delay="0.10s">
+								<div class="content">
+									<span class="time">Jun 2020 - Aug 2020</span>
+									<h3 class="title">Text Data Annotator at Indonesia Association for Computational Linguistics &
+										Prosa.AI</h3>
+									<p>Enhance the labeling of sentiments, named entities, word classes, and normalization for data
+										utilized in evaluating the natural language processing of Indonesian, ensuring accurate and
+										comprehensive analysis.</p>
+								</div>
+							</div>
+
+							<!-- timeline item -->
+							<div class="timeline-container wow fadeInUp" data-wow-delay="0.12s">
+								<div class="content">
+									<span class="time">Mar 2020 - Aug 2020</span>
+									<h3 class="title">Project Manager for Social Media Strategy at Roma Malkist</h3>
+									<p>Devised a compelling digital marketing strategy to revitalize Roma Malkist's public image, taking
+										the lead as Project Manager to ensure the successful execution of this transformative rebranding
+										initiative.</p>
+								</div>
+							</div>
+
+							<!-- main line -->
+							<span class="line"></span>
+
+						</div>
+
+					</div>
+
+				</div>
+
 			</div>
 
-		</div>
-		
-	</section>
-	
-	<!-- section experience -->
-	<section id="experience">
+		</section>
 
-		<div class="container">
-			
-			<!-- section title -->
-			<h2 class="section-title wow fadeInUp">Experience</h2>
+		<!-- section works -->
+		<section id="works">
 
-			<div class="spacer" data-height="60"></div>
-			
-			<div class="row">
+			<div class="container">
 
-				<div class="col-md-6">
-					
-					<!-- timeline wrapper -->
-					<div class="timeline edu bg-white rounded shadow-dark padding-30 overflow-hidden">
+				<!-- section title -->
+				<h2 class="section-title wow fadeInUp">Recent works</h2>
 
-						<!-- timeline item -->
-						<div class="timeline-container wow fadeInUp">
-							<div class="content">
-								<span class="time">2023 - 2025</span>
-								<h3 class="title">Master of Business Administration - MBA at Telkom University</h3>
-								<p>Courses : Business Global and Corporate Strategic, Human Capital Strategy, Big Data Management & Analytics.</p>
+				<div class="spacer" data-height="60"></div>
+
+				<!-- portfolio filter (desktop) -->
+				<ul class="portfolio-filter list-inline wow fadeInUp">
+					<li class="current list-inline-item" data-filter="*">Everything</li>
+					<li class="list-inline-item" data-filter=".web">Web</li>
+					<li class="list-inline-item" data-filter=".ui">UI Design</li>
+					<li class="list-inline-item" data-filter=".jurnal">Journal</li>
+					<li class="list-inline-item" data-filter=".UX">UX Research</li>
+					<li class="list-inline-item" data-filter=".Product">Product Manager</li>
+					<li class="list-inline-item" data-filter=".sb">Startup/Business</li>
+				</ul>
+
+				<!-- portfolio filter (mobile) -->
+				<div class="pf-filter-wrapper">
+					<select class="portfolio-filter-mobile">
+						<option value="*">Everything</option>
+						<option value=".web">Web</option>
+						<option value=".ui">UI Design</option>
+						<option value=".jurnal">Journal</option>
+						<option value=".UX">UX Research</option>
+						<option value=".Product">Product Manager</option>
+						<option value=".sb">Startup/Business</option>
+					</select>
+				</div>
+
+				<!-- portolio wrapper -->
+				<div class="row portfolio-wrapper">
+
+					<!-- portfolio item -->
+					<div class="col-md-4 col-sm-6 grid-item web">
+						<a href="https://javafrinsaestate.co.id/" target="_blank">
+							<div class="portfolio-item rounded shadow-dark">
+								<div class="details">
+									<span class="term">Web</span>
+									<h4 class="title">Java Frinsa Estate x Punakawan</h4>
+									<span class="more-button"><i class="icon-link"></i></span>
+								</div>
+								<div class="thumb">
+									<img src="images/Frinsa.svg" alt="Portfolio-title" />
+									<div class="mask"></div>
+								</div>
 							</div>
-						</div>
-
-						<!-- timeline item -->
-						<div class="timeline-container wow fadeInUp" data-wow-delay="0.2s">
-							<div class="content">
-								<span class="time">2017 - 2021</span>
-								<h3 class="title">Bachelor of Computer Science at Telkom University</h3>
-								<p>Courses : Information System, Software Design Analysis, Computer Network and Software Development.</p>
-							</div>
-						</div>
-
-						<!-- timeline item -->
-						<div class="timeline-container wow fadeInUp" data-wow-delay="0.4s">
-							<div class="content">
-								<span class="time">Apr 2021 - Sep 2021</span>
-								<h3 class="title">Bootcamp Full-stack Web Development at Binar Academy</h3>
-								<p>Courses : Framework ReactJS and NodeJS, Application architecture design and information structures (MVC and MVR), Optimized Redux, Using CI/CD, and Implementing the Agile method.</p>
-							</div>
-						</div>
-
-						<!-- timeline item -->
-						<div class="timeline-container wow fadeInUp" data-wow-delay="0.6s">
-							<div class="content">
-								<span class="time">May 2021 - August 2021</span>
-								<h3 class="title">Bootcamp UI/UX Design at Productzilla</h3>
-								<p>Understand the basic concept of User Experience to its influence in the industrial world.
-									How to carry out UX research, conduct analysis to get output in the form of solutions.
-									Understand the basic concepts of system design to assist in visualizing the solution into a design.
-									Understanding the important role of each profession related to UX in the industrial world so as to create the
-									ideal team to create a product or business.</p>
-							</div>
-						</div>
-
-						<!-- main line -->
-						<span class="line"></span>
-
+						</a>
 					</div>
 
-				</div>
-
-				<div class="col-md-6">
-					
-					<!-- responsive spacer -->
-					<div class="spacer d-md-none d-lg-none" data-height="30"></div>
-
-					<!-- timeline wrapper -->
-					<div class="timeline exp bg-white rounded shadow-dark padding-30 overflow-hidden">
-
-						<!-- timeline item -->
-						<div class="timeline-container wow fadeInUp">
-							<div class="content">
-								<span class="time">Feb 2023 - Now</span>
-								<h3 class="title">Software Quality Assurance Lead Infra - Core at Stockbit</h3>
-								<p>Responsible for quality across three platforms namely Android, iOS and Web.
-									Estimate, prioritize, plan and coordinate testing activities.
-									Review quality of test cases written and quality of testing done by team members for every task.
-									Plan effective Regression testing cycles.
-									Collaborate with Engineer, UI/UX, and Product Management teams.
-									Create & manage bug reports and communicate with the team.</p>
+					<!-- portfolio item -->
+					<div class="col-md-4 col-sm-6 grid-item creative sb">
+						<a href="#small-dialog01" class="work-content">
+							<div class="portfolio-item rounded shadow-dark">
+								<div class="details">
+									<span class="term">Startup/Business</span>
+									<h4 class="title">Punakawan</h4>
+									<span class="more-button"><i class="icon-options"></i></span>
+								</div>
+								<div class="thumb">
+									<img src="images/punakawan.svg" alt="Portfolio-title" />
+									<div class="mask"></div>
+								</div>
 							</div>
+						</a>
+						<div id="small-dialog01" class="white-popup zoom-anim-dialog mfp-hide">
+							<img src="images/punakawan.svg" alt="Title" />
+							<h2>Punakawan</h2>
+							<p>Punakawan is a company engaged in information and digital technology, we provide services for making
+								Mobile Applications, Web and various digital products needed for business and personal with features
+								that can be tailored to your needs.</p>
+							<a href="https://www.punakawanid.tech/" class="btn btn-default">View Punakawan</a>
 						</div>
-						
-
-						<!-- timeline item -->
-						<div class="timeline-container wow fadeInUp" data-wow-delay="0.2s">
-							<div class="content">
-								<span class="time">Mar 2022 - Jan 2023</span>
-								<h3 class="title">Quality Assurance Tester at Stockbit</h3>
-								<p>Collaborate with QA Engineers & QA Analyst to develop effective strategies and test plans. Report bugs and errors to development teams. Work with cross-functional teams to ensure quality throughout the software development lifecycle. Conduct post-release/post-implementation testing. help the support team to solve problems from users</p>
-							</div>
-						</div>
-
-						<!-- timeline item -->
-						<div class="timeline-container wow fadeInUp" data-wow-delay="0.4s">
-							<div class="content">
-								<span class="time">Nov 2021 - Mar 2022</span>
-								<h3 class="title">IT Project Management at KB Bukopin</h3>
-								<p>Assist the Project Manager in monitoring and managing the Project. Ensure the Project runs On-time according to the Timeline. Prepare and make the routine reports for Management. Build, develop, and maintain communication between Stream Members.</p>
-							</div>
-						</div>
-						
-						<!-- timeline item -->
-						<div class="timeline-container wow fadeInUp" data-wow-delay="0.6s">
-							<div class="content">
-								<span class="time">Jun 2020 - Oct 2021</span>
-								<h3 class="title">Product Manager Intern at CXO CT Corp</h3>
-								<p>Monitor product implementation and ensure timely progress.
-									Conduct research on new features that can be implemented into the product.
-									Conduct usability testing for new products with the aim of gaining user impressions and obtaining suggestions for improvement.
-									Integrate usability studies, research and market analysis into product requirement.
-									Communicating with stakeholders and other leads to ensure the vision of the products.
-									Building product prioritization based on business and customer needs.</p>
-							</div>
-						</div>
-
-						<!-- timeline item -->
-						<div class="timeline-container wow fadeInUp" data-wow-delay="0.8s">
-							<div class="content">
-								<span class="time">Aug 2020 - Jan 2021</span>
-								<h3 class="title">Front-End Web Developer at Telkom Indonesia</h3>
-								<p>Successful completion of two given projects,
-									Determine the structure and design of the website pages,
-									Ensures branding consistency through website design,
-									Work with back end developers to do coding and troubleshooting,
-									Create logo for Telkom subsidiary companies.</p>
-							</div>
-						</div>
-
-						<!-- timeline item -->
-						<div class="timeline-container wow fadeInUp" data-wow-delay="0.10s">
-							<div class="content">
-								<span class="time">Jun 2020 - Aug 2020</span>
-								<h3 class="title">Text Data Annotator at Indonesia Association for Computational Linguistics & Prosa.AI</h3>
-								<p>Labeling for sentiments, named entities, word classes, and normalization on the data used to measure the natural language of Indonesian.</p>
-							</div>
-						</div>
-
-						<!-- timeline item -->
-						<div class="timeline-container wow fadeInUp" data-wow-delay="0.12s">
-							<div class="content">
-								<span class="time">Mar 2020 - Aug 2020</span>
-								<h3 class="title">Project Manager for Social Media Strategy at Roma Malkist</h3>
-								<p>Creating a digital marketing strategy to re-brand Roma Malkist image in public eyes. I was in charge as a Project Manager for this Project.</p>
-							</div>
-						</div>
-
-						<!-- main line -->
-						<span class="line"></span>
-
 					</div>
 
-				</div>
-
-			</div>
-
-		</div>
-		
-	</section>
-	
-	<!-- section works -->
-	<section id="works">
-
-		<div class="container">
-			
-			<!-- section title -->
-			<h2 class="section-title wow fadeInUp">Recent works</h2>
-
-			<div class="spacer" data-height="60"></div>
-
-			<!-- portfolio filter (desktop) -->
-			<ul class="portfolio-filter list-inline wow fadeInUp">
-				<li class="current list-inline-item" data-filter="*">Everything</li>
-				<li class="list-inline-item" data-filter=".web">Web</li>
-				<li class="list-inline-item" data-filter=".ui">UI Design</li>
-				<li class="list-inline-item" data-filter=".jurnal">Journal</li>
-				<li class="list-inline-item" data-filter=".UX">UX Research</li>
-				<li class="list-inline-item" data-filter=".Product">Product Manager</li>
-				<li class="list-inline-item" data-filter=".sb">Startup/Business</li>
-			</ul>
-			
-			<!-- portfolio filter (mobile) -->
-			<div class="pf-filter-wrapper">
-				<select class="portfolio-filter-mobile">
-					<option value="*">Everything</option>
-					<option value=".web">Web</option>
-					<option value=".ui">UI Design</option>
-					<option value=".jurnal">Journal</option>
-					<option value=".UX">UX Research</option>
-					<option value=".Product">Product Manager</option>
-					<option value=".sb">Startup/Business</option>
-				</select>
-			</div>
-			
-			<!-- portolio wrapper -->
-			<div class="row portfolio-wrapper">
-
-				<!-- portfolio item -->
-				<div class="col-md-4 col-sm-6 grid-item web">
-					<a href="https://javafrinsaestate.co.id/" target="_blank">
-						<div class="portfolio-item rounded shadow-dark">
-							<div class="details">
-								<span class="term">Web</span>
-								<h4 class="title">Java Frinsa Estate x Punakawan</h4>
-								<span class="more-button"><i class="icon-link"></i></span>
+					<!-- portfolio item -->
+					<div class="col-md-4 col-sm-6 grid-item Product web">
+						<a href="http://affanhasby.my.id/wp/" target="_blank">
+							<div class="portfolio-item rounded shadow-dark">
+								<div class="details">
+									<span class="term">Product Manager || Web</span>
+									<h4 class="title">CXO E-Commerce</h4>
+									<span class="more-button"><i class="icon-link"></i></span>
+								</div>
+								<div class="thumb">
+									<img src="images/wp.jpg" alt="Portfolio-title" />
+									<div class="mask"></div>
+								</div>
 							</div>
-							<div class="thumb">
-								<img src="images/Frinsa.svg" alt="Portfolio-title" />
-								<div class="mask"></div>
-							</div>
-						</div>
-					</a>
-				</div>
-				
-				<!-- portfolio item -->
-				<div class="col-md-4 col-sm-6 grid-item creative sb">
-					<a href="#small-dialog01" class="work-content">
-						<div class="portfolio-item rounded shadow-dark">
-							<div class="details">
-								<span class="term">Startup/Business</span>
-								<h4 class="title">Punakawan</h4>
-								<span class="more-button"><i class="icon-options"></i></span>
-							</div>
-							<div class="thumb">
-								<img src="images/punakawan.svg" alt="Portfolio-title" />
-								<div class="mask"></div>
-							</div>
-						</div>
-					</a>
-					<div id="small-dialog01" class="white-popup zoom-anim-dialog mfp-hide">
-						<img src="images/punakawan.svg" alt="Title" />
-						<h2>Punakawan</h2>
-						<p>Punakawan is a company engaged in information and digital technology, we provide services for making Mobile Applications, Web and various digital products needed for business and personal with features that can be tailored to your needs.</p>
-						<a href="https://www.punakawanid.tech/" class="btn btn-default">View Punakawan</a>
+						</a>
 					</div>
-				</div>
 
-				<!-- portfolio item -->
-				<div class="col-md-4 col-sm-6 grid-item Product web">
-					<a href="http://affanhasby.my.id/wp/" target="_blank">
-						<div class="portfolio-item rounded shadow-dark">
-							<div class="details">
-								<span class="term">Product Manager || Web</span>
-								<h4 class="title">CXO E-Commerce</h4>
-								<span class="more-button"><i class="icon-link"></i></span>
+					<!-- portfolio item -->
+					<div class="col-md-4 col-sm-6 grid-item Product web">
+						<a href="https://hasbyaffan.wixsite.com/trysite" target="_blank">
+							<div class="portfolio-item rounded shadow-dark">
+								<div class="details">
+									<span class="term">Product Manager || Web</span>
+									<h4 class="title">CXO Media || NSS</h4>
+									<span class="more-button"><i class="icon-link"></i></span>
+								</div>
+								<div class="thumb">
+									<img src="images/nss.jpg" alt="Portfolio-title" />
+									<div class="mask"></div>
+								</div>
 							</div>
-							<div class="thumb">
-								<img src="images/wp.jpg" alt="Portfolio-title" />
-								<div class="mask"></div>
-							</div>
-						</div>
-					</a>
-				</div>
-				
-				<!-- portfolio item -->
-				<div class="col-md-4 col-sm-6 grid-item Product web">
-					<a href="https://hasbyaffan.wixsite.com/trysite" target="_blank">
-						<div class="portfolio-item rounded shadow-dark">
-							<div class="details">
-								<span class="term">Product Manager || Web</span>
-								<h4 class="title">CXO Media || NSS</h4>
-								<span class="more-button"><i class="icon-link"></i></span>
-							</div>
-							<div class="thumb">
-								<img src="images/nss.jpg" alt="Portfolio-title" />
-								<div class="mask"></div>
-							</div>
-						</div>
-					</a>
-				</div>
-
-				<!-- portfolio item -->
-				<div class="col-md-4 col-sm-6 grid-item UX">
-					<a href="https://drive.google.com/file/d/1NR9UPMMTcG4-6yzsUkyqU_HuG6Wpodax/view?usp=sharing" target="_blank">
-						<div class="portfolio-item rounded shadow-dark">
-							<div class="details">
-								<span class="term">UX Research</span>
-								<h4 class="title">Laundryin UX Research</h4>
-								<span class="more-button"><i class="icon-link"></i></span>
-							</div>
-							<div class="thumb">
-								<img src="images/laundry.svg" alt="Portfolio-title" />
-								<div class="mask"></div>
-							</div>
-						</div>
-					</a>
-				</div>
-
-				<!-- portfolio item -->
-				<div class="col-md-4 col-sm-6 grid-item web">
-					<a href="http://www.affan.website/PlayTraditionalGame/" target="_blank">
-						<div class="portfolio-item rounded shadow-dark">
-							<div class="details">
-								<span class="term">Web</span>
-								<h4 class="title">Traditional Game</h4>
-								<span class="more-button"><i class="icon-link"></i></span>
-							</div>
-							<div class="thumb">
-								<img src="images/TraditionalGame.svg" alt="Portfolio-title" />
-								<div class="mask"></div>
-							</div>
-						</div>
-					</a>
-				</div>
-
-				<!-- portfolio item -->
-				<div class="col-md-4 col-sm-6 grid-item web">
-					<a href="https://oasislab.id/" target="_blank">
-						<div class="portfolio-item rounded shadow-dark">
-							<div class="details">
-								<span class="term">Web</span>
-								<h4 class="title">OASISLAB</h4>
-								<span class="more-button"><i class="icon-link"></i></span>
-							</div>
-							<div class="thumb">
-								<img src="images/oasis.svg" alt="Portfolio-title" />
-								<div class="mask"></div>
-							</div>
-						</div>
-					</a>
-				</div>
-
-				<!-- portfolio item -->
-				<div class="col-md-4 col-sm-6 grid-item web">
-					<a href="https://virtualpbx.telkomku.com/" target="_blank">
-						<div class="portfolio-item rounded shadow-dark">
-							<div class="details">
-								<span class="term">Web</span>
-								<h4 class="title">Virtual PBX</h4>
-								<span class="more-button"><i class="icon-link"></i></span>
-							</div>
-							<div class="thumb">
-								<img src="images/pbx.svg" alt="Portfolio-title" />
-								<div class="mask"></div>
-							</div>
-						</div>
-					</a>
-				</div>
-
-				<!-- portfolio item -->
-				<div class="col-md-4 col-sm-6 grid-item creative ui">
-					<a href="#small-dialog" class="work-content">
-						<div class="portfolio-item rounded shadow-dark">
-							<div class="details">
-								<span class="term">UI Design</span>
-								<h4 class="title">Laundry UI Design</h4>
-								<span class="more-button"><i class="icon-options"></i></span>
-							</div>
-							<div class="thumb">
-								<img src="images/laundry.svg" alt="Portfolio-title" />
-								<div class="mask"></div>
-							</div>
-						</div>
-					</a>
-					<div id="small-dialog" class="white-popup zoom-anim-dialog mfp-hide">
-						<img src="images/laundry2.svg" alt="Title" />
-						<h2>Laundryin</h2>
-						<p>Aplikasi ini untuk mempermudah user dalam mencuci pakaian tanpa perlu mengantar pakaian kotornya ke tempat laundry.</p>
-						<a href="https://www.figma.com/proto/Yqb3JdRzgApyKkDQCPbC0Z/Laundryin?node-id=660%3A2&scaling=scale-down&page-id=0%3A1" class="btn btn-default">View on Figma</a>
+						</a>
 					</div>
-				</div>
 
-				<!-- portfolio item -->
-				<div class="col-md-4 col-sm-6 grid-item creative sb">
-					<a href="#small-dialog02" class="work-content">
-						<div class="portfolio-item rounded shadow-dark">
-							<div class="details">
-								<span class="term">Startup/Business</span>
-								<h4 class="title">Kioos</h4>
-								<span class="more-button"><i class="icon-options"></i></span>
+					<!-- portfolio item -->
+					<div class="col-md-4 col-sm-6 grid-item UX">
+						<a href="https://drive.google.com/file/d/1NR9UPMMTcG4-6yzsUkyqU_HuG6Wpodax/view?usp=sharing"
+							target="_blank">
+							<div class="portfolio-item rounded shadow-dark">
+								<div class="details">
+									<span class="term">UX Research</span>
+									<h4 class="title">Laundryin UX Research</h4>
+									<span class="more-button"><i class="icon-link"></i></span>
+								</div>
+								<div class="thumb">
+									<img src="images/laundry.svg" alt="Portfolio-title" />
+									<div class="mask"></div>
+								</div>
 							</div>
-							<div class="thumb">
-								<img src="images/kioos.svg" alt="Portfolio-title" />
-								<div class="mask"></div>
-							</div>
-						</div>
-					</a>
-					<div id="small-dialog02" class="white-popup zoom-anim-dialog mfp-hide">
-						<img src="images/kioos.svg" alt="Title" />
-						<h2>Kioos</h2>
-						<p>KIOOS hadir sebagai solusi berbelanja kebutuhan harian anda. Anda tidak perlu lagi keluar rumah untuk mendapatkan belanjaan yang anda cari. Cukup buka di website kami atau pesan melalui aplikasi dan akan langsung kami antarkan ke depan pintu anda!</p>
-						<a href="https://kioos.id/" class="btn btn-default">View Kioos</a>
-						<a href="https://youtu.be/4IyCCGP07Jk" class="btn btn-default">View Video</a>
+						</a>
 					</div>
-				</div>
 
-				<!-- portfolio item -->
-				<div class="col-md-4 col-sm-6 grid-item creative ui">
-					<a href="#small-dialog2" class="work-content">
-						<div class="portfolio-item rounded shadow-dark">
-							<div class="details">
-								<span class="term">UI Design</span>
-								<h4 class="title">Love Foods</h4>
-								<span class="more-button"><i class="icon-options"></i></span>
+					<!-- portfolio item -->
+					<div class="col-md-4 col-sm-6 grid-item web">
+						<a href="http://www.affan.website/PlayTraditionalGame/" target="_blank">
+							<div class="portfolio-item rounded shadow-dark">
+								<div class="details">
+									<span class="term">Web</span>
+									<h4 class="title">Traditional Game</h4>
+									<span class="more-button"><i class="icon-link"></i></span>
+								</div>
+								<div class="thumb">
+									<img src="images/TraditionalGame.svg" alt="Portfolio-title" />
+									<div class="mask"></div>
+								</div>
 							</div>
-							<div class="thumb">
-								<img src="images/foods.svg" alt="Portfolio-title" />
-								<div class="mask"></div>
-							</div>
-						</div>
-					</a>
-					<div id="small-dialog2" class="white-popup zoom-anim-dialog mfp-hide">
-						<img src="images/foods2.svg" alt="Title" />
-						<h2>Love Foods</h2>
-						<p>Love foods aplikasi untuk order makanan yang user suka.</p>
-						<a href="https://dribbble.com/affanhasby" class="btn btn-default">View on Dribbble</a>
+						</a>
 					</div>
-				</div>
-				
 
-				<!-- portfolio item -->
-				<div class="col-md-4 col-sm-6 grid-item jurnal">
-					<a href="https://socj.telkomuniversity.ac.id/ojs/index.php/indojc/article/view/549" target="_blank">
-						<div class="portfolio-item rounded shadow-dark">
-							<div class="details">
-								<span class="term">Journal</span>
-								<h4 class="title">Indo Jc</h4>
-								<span class="more-button"><i class="icon-link"></i></span>
+					<!-- portfolio item -->
+					<div class="col-md-4 col-sm-6 grid-item web">
+						<a href="https://oasislab.id/" target="_blank">
+							<div class="portfolio-item rounded shadow-dark">
+								<div class="details">
+									<span class="term">Web</span>
+									<h4 class="title">OASISLAB</h4>
+									<span class="more-button"><i class="icon-link"></i></span>
+								</div>
+								<div class="thumb">
+									<img src="images/oasis.svg" alt="Portfolio-title" />
+									<div class="mask"></div>
+								</div>
 							</div>
-							<div class="thumb">
-								<img src="images/indojc.svg" alt="Portfolio-title" />
-								<div class="mask"></div>
+						</a>
+					</div>
+
+					<!-- portfolio item -->
+					<div class="col-md-4 col-sm-6 grid-item web">
+						<a href="https://virtualpbx.telkomku.com/" target="_blank">
+							<div class="portfolio-item rounded shadow-dark">
+								<div class="details">
+									<span class="term">Web</span>
+									<h4 class="title">Virtual PBX</h4>
+									<span class="more-button"><i class="icon-link"></i></span>
+								</div>
+								<div class="thumb">
+									<img src="images/pbx.svg" alt="Portfolio-title" />
+									<div class="mask"></div>
+								</div>
 							</div>
+						</a>
+					</div>
+
+					<!-- portfolio item -->
+					<div class="col-md-4 col-sm-6 grid-item creative ui">
+						<a href="#small-dialog" class="work-content">
+							<div class="portfolio-item rounded shadow-dark">
+								<div class="details">
+									<span class="term">UI Design</span>
+									<h4 class="title">Laundry UI Design</h4>
+									<span class="more-button"><i class="icon-options"></i></span>
+								</div>
+								<div class="thumb">
+									<img src="images/laundry.svg" alt="Portfolio-title" />
+									<div class="mask"></div>
+								</div>
+							</div>
+						</a>
+						<div id="small-dialog" class="white-popup zoom-anim-dialog mfp-hide">
+							<img src="images/laundry2.svg" alt="Title" />
+							<h2>Laundryin</h2>
+							<p>Aplikasi ini untuk mempermudah user dalam mencuci pakaian tanpa perlu mengantar pakaian kotornya ke
+								tempat laundry.</p>
+							<a href="https://www.figma.com/proto/Yqb3JdRzgApyKkDQCPbC0Z/Laundryin?node-id=660%3A2&scaling=scale-down&page-id=0%3A1"
+								class="btn btn-default">View on Figma</a>
 						</div>
-					</a>
-				</div>
+					</div>
 
-				
-				<!-- portfolio item -->
-				<!-- <div class="col-md-4 col-sm-6 grid-item art">
+					<!-- portfolio item -->
+					<div class="col-md-4 col-sm-6 grid-item creative sb">
+						<a href="#small-dialog02" class="work-content">
+							<div class="portfolio-item rounded shadow-dark">
+								<div class="details">
+									<span class="term">Startup/Business</span>
+									<h4 class="title">Kioos</h4>
+									<span class="more-button"><i class="icon-options"></i></span>
+								</div>
+								<div class="thumb">
+									<img src="images/kioos.svg" alt="Portfolio-title" />
+									<div class="mask"></div>
+								</div>
+							</div>
+						</a>
+						<div id="small-dialog02" class="white-popup zoom-anim-dialog mfp-hide">
+							<img src="images/kioos.svg" alt="Title" />
+							<h2>Kioos</h2>
+							<p>KIOOS hadir sebagai solusi berbelanja kebutuhan harian anda. Anda tidak perlu lagi keluar rumah untuk
+								mendapatkan belanjaan yang anda cari. Cukup buka di website kami atau pesan melalui aplikasi dan akan
+								langsung kami antarkan ke depan pintu anda!</p>
+							<a href="https://kioos.id/" class="btn btn-default">View Kioos</a>
+							<a href="https://youtu.be/4IyCCGP07Jk" class="btn btn-default">View Video</a>
+						</div>
+					</div>
+
+					<!-- portfolio item -->
+					<div class="col-md-4 col-sm-6 grid-item creative ui">
+						<a href="#small-dialog2" class="work-content">
+							<div class="portfolio-item rounded shadow-dark">
+								<div class="details">
+									<span class="term">UI Design</span>
+									<h4 class="title">Love Foods</h4>
+									<span class="more-button"><i class="icon-options"></i></span>
+								</div>
+								<div class="thumb">
+									<img src="images/foods.svg" alt="Portfolio-title" />
+									<div class="mask"></div>
+								</div>
+							</div>
+						</a>
+						<div id="small-dialog2" class="white-popup zoom-anim-dialog mfp-hide">
+							<img src="images/foods2.svg" alt="Title" />
+							<h2>Love Foods</h2>
+							<p>Love foods aplikasi untuk order makanan yang user suka.</p>
+							<a href="https://dribbble.com/affanhasby" class="btn btn-default">View on Dribbble</a>
+						</div>
+					</div>
+
+
+					<!-- portfolio item -->
+					<div class="col-md-4 col-sm-6 grid-item jurnal">
+						<a href="https://socj.telkomuniversity.ac.id/ojs/index.php/indojc/article/view/549" target="_blank">
+							<div class="portfolio-item rounded shadow-dark">
+								<div class="details">
+									<span class="term">Journal</span>
+									<h4 class="title">Indo Jc</h4>
+									<span class="more-button"><i class="icon-link"></i></span>
+								</div>
+								<div class="thumb">
+									<img src="images/indojc.svg" alt="Portfolio-title" />
+									<div class="mask"></div>
+								</div>
+							</div>
+						</a>
+					</div>
+
+
+					<!-- portfolio item -->
+					<!-- <div class="col-md-4 col-sm-6 grid-item art">
 					<a href="https://via.placeholder.com/330x267" class="work-image">
 						<div class="portfolio-item rounded shadow-dark">
 							<div class="details">
@@ -829,8 +1021,8 @@
 					</a>
 				</div> -->
 
-				<!-- portfolio item -->
-				<!-- <div class="col-md-4 col-sm-6 grid-item creative design">
+					<!-- portfolio item -->
+					<!-- <div class="col-md-4 col-sm-6 grid-item creative design">
 					<a href="#small-dialog" class="work-content">
 						<div class="portfolio-item rounded shadow-dark">
 							<div class="details">
@@ -853,8 +1045,8 @@
 					</div>
 				</div> -->
 
-				<!-- portfolio item -->
-				<!-- <div class="col-md-4 col-sm-6 grid-item branding">
+					<!-- portfolio item -->
+					<!-- <div class="col-md-4 col-sm-6 grid-item branding">
 					<a href="https://www.youtube.com/watch?v=qf9z4ulfmYw" class="work-video">
 						<div class="portfolio-item rounded shadow-dark">
 							<div class="details">
@@ -870,8 +1062,8 @@
 					</a>
 				</div> -->
 
-				<!-- portfolio item -->
-				<!-- <div class="col-md-4 col-sm-6 grid-item creative">
+					<!-- portfolio item -->
+					<!-- <div class="col-md-4 col-sm-6 grid-item creative">
 					<a href="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/240233494&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true" class="work-video">
 						<div class="portfolio-item rounded shadow-dark">
 							<div class="details">
@@ -887,8 +1079,8 @@
 					</a>
 				</div> -->
 
-				<!-- portfolio item -->
-				<!-- <div class="col-md-4 col-sm-6 grid-item art branding">
+					<!-- portfolio item -->
+					<!-- <div class="col-md-4 col-sm-6 grid-item art branding">
 					<a href="#gallery-1" class="gallery-link">
 						<div class="portfolio-item rounded shadow-dark">
 							<div class="details">
@@ -908,8 +1100,8 @@
 					</div>
 				</div> -->
 
-				<!-- portfolio item -->
-				<!-- <div class="col-md-4 col-sm-6 grid-item creative design">
+					<!-- portfolio item -->
+					<!-- <div class="col-md-4 col-sm-6 grid-item creative design">
 					<a href="https://themeforest.net/user/pxlsolutions/portfolio" target="_blank">
 						<div class="portfolio-item rounded shadow-dark">
 							<div class="details">
@@ -925,10 +1117,10 @@
 					</a>
 				</div> -->
 
-			</div>
-			
-			<!-- more button -->
-			<!-- <div class="load-more text-center mt-4">
+				</div>
+
+				<!-- more button -->
+				<!-- <div class="load-more text-center mt-4">
 				<a href="javascript:" class="btn btn-default"><i class="fas fa-spinner"></i> Load more</a>
 				<ul class="portfolio-pagination list-inline d-none">
 					<li class="list-inline-item">1</li>
@@ -936,12 +1128,12 @@
 				</ul>
 			</div> -->
 
-		</div>
+			</div>
 
-	</section>
-	
-	<!-- section prices -->
-	<!-- <section id="prices">
+		</section>
+
+		<!-- section prices -->
+		<!-- <section id="prices">
 
 		<div class="container">
 			
@@ -994,119 +1186,130 @@
 		</div>
 
 	</section> -->
-	
-	<!-- section testimonials -->
-	<section id="testimonials">
 
-		<div class="container">
-			
-			<!-- section title -->
-			<h2 class="section-title wow fadeInUp">Recommendations</h2>
+		<!-- section testimonials -->
+		<section id="testimonials">
 
-			<div class="spacer" data-height="60"></div>
-			
-			<!-- testimonials wrapper -->
-			<div class="testimonials-wrapper">
+			<div class="container">
 
-				<!-- testimonial item -->
-				<div class="testimonial-item text-center mx-auto">
-					<div class="thumb mb-3 mx-auto">
-						<img src="images/testimonials/ricki.jpg" alt="customer-name" />						
+				<!-- section title -->
+				<h2 class="section-title wow fadeInUp">Recommendations</h2>
+
+				<div class="spacer" data-height="60"></div>
+
+				<!-- testimonials wrapper -->
+				<div class="testimonials-wrapper">
+
+					<!-- testimonial item -->
+					<div class="testimonial-item text-center mx-auto">
+						<div class="thumb mb-3 mx-auto">
+							<img src="images/testimonials/ricki.jpg" alt="customer-name" />
+						</div>
+						<h4 class="mt-3 mb-0">Ricki Bin Yamin</h4>
+						<span class="subtitle">iOS Engineer Core - Infra at Stockbit</span>
+						<div class="bg-white padding-30 shadow-dark rounded triangle-top position-relative mt-4">
+							<p class="mb-0">Affan is my best partner in building an amazing investing apps, in Stockbit. He's a good
+								qualified QA Engineer. He can checked every details of my works, even for something that I missed as
+								developer. His sense of finding bug is very great. His contributions were really valuable to the
+								community.
+								I'd gladly work with Affan!!</p>
+						</div>
 					</div>
-					<h4 class="mt-3 mb-0">Ricki Bin Yamin</h4>
-					<span class="subtitle">iOS Engineer Core - Infra at Stockbit</span>
-					<div class="bg-white padding-30 shadow-dark rounded triangle-top position-relative mt-4">
-						<p class="mb-0">Affan is my best partner in building an amazing investing apps, in Stockbit. He's a good qualified QA Engineer. He can checked every details of my works, even for something that I missed as developer. His sense of finding bug is very great. His contributions were really valuable to the community. 
-							I'd gladly work with Affan!!</p>
+
+					<!-- testimonial item -->
+					<div class="testimonial-item text-center mx-auto">
+						<div class="thumb mb-3 mx-auto">
+							<img src="images/testimonials/renalto.jpg" alt="customer-name" />
+						</div>
+						<h4 class="mt-3 mb-0">Renalto Wangistu</h4>
+						<span class="subtitle">Product Manager at CXO CT Corp</span>
+						<div class="bg-white padding-30 shadow-dark rounded triangle-top position-relative mt-4">
+							<p class="mb-0">During my time working at CXO, I was managing Affan directly and I was suprised by his
+								strong work ethic and go getter attitude. I think with this attitude combined with his knowledge, he
+								will do great things. Wish you all the best Fan</p>
+						</div>
 					</div>
+
+					<!-- testimonial item -->
+					<div class="testimonial-item text-center mx-auto">
+						<div class="thumb mb-3 mx-auto">
+							<img src="images/testimonials/testimonials-1.jpg" alt="customer-name" />
+						</div>
+						<h4 class="mt-3 mb-0">David Gunawan</h4>
+						<span class="subtitle">Network Telecommunications Laboratory Manager at Telkom Indonesia</span>
+						<div class="bg-white padding-30 shadow-dark rounded triangle-top position-relative mt-4">
+							<p class="mb-0">Mas Affan merupakan pribadi yang semangat, disiplin, cepat belajar hal yang baru, dan
+								dapat bekerjasama
+								dengan sangat baik. Selama menjadiinternship di Telkom Direktorat Digital Business selama 6 bulan, Mas
+								Affan bergabung dalam 2 project internal kami dalam pengembangan website sebagai front-end developer
+								dengan hasil dan performa melebihi target yang diharapkan. Semoga Mas Affan sehat dan sukses selalu :)
+							</p>
+						</div>
+					</div>
+
+					<!-- testimonial item -->
+					<div class="testimonial-item text-center mx-auto">
+						<div class="thumb mb-3 mx-auto">
+							<img src="images/testimonials/testimonials-2.jpg" alt="customer-name" />
+						</div>
+						<h4 class="mt-3 mb-0">Navya Kirana Safitri</h4>
+						<span class="subtitle">Document Engineer Intern at Telkom DDB</span>
+						<div class="bg-white padding-30 shadow-dark rounded triangle-top position-relative mt-4">
+							<p class="mb-0">He is kinda fast learner, having strong interest in Internet of Things. Workaholic, good
+								problem solver
+								and also wise man. The best team mate ever!.</p>
+						</div>
+					</div>
+
+					<!-- testimonial item -->
+					<div class="testimonial-item text-center mx-auto">
+						<div class="thumb mb-3 mx-auto">
+							<img src="images/testimonials/testimonials-3.jpg" alt="customer-name" />
+						</div>
+						<h4 class="mt-3 mb-0">Ciara Nurdenara</h4>
+						<span class="subtitle">Computer Science Student at Telkom University</span>
+						<div class="bg-white padding-30 shadow-dark rounded triangle-top position-relative mt-4">
+							<p class="mb-0">Affan has an excellent communication skills, Initiative, adaptable, involved in most of
+								the project and
+								great influencing skill.</p>
+						</div>
+					</div>
+
+					<!-- testimonial item -->
+					<div class="testimonial-item text-center mx-auto">
+						<div class="thumb mb-3 mx-auto">
+							<img src="images/testimonials/testimonials-4.jpg" alt="customer-name" />
+						</div>
+						<h4 class="mt-3 mb-0">Alfan Baharudin</h4>
+						<span class="subtitle">Front-end Web Developer Intern at Telkom DDB</span>
+						<div class="bg-white padding-30 shadow-dark rounded triangle-top position-relative mt-4">
+							<p class="mb-0">Menurut saya, Affan merupakan partner yang sangat baik, sangat ramah, dan cepat berbaur
+								dengan siapapun.
+								Dalam mengerjakan tugasnya pun sangat cepat. Cara dia berkomunikasi dan mengajarkan sesuatu bersama
+								orang lain juga mudah dipahami. Saat ada materi baru pun cepat memahaminya. Bisa dikatakan, dia sangat
+								cekatan dan bisa memberikan motivasi kepada semua partnernyaa. Sangat rekomendasi karena dia mudah
+								beradaptasi dalam kondisi apapun.</p>
+						</div>
+					</div>
+
+					<!-- testimonial item -->
+					<div class="testimonial-item text-center mx-auto">
+						<div class="thumb mb-3 mx-auto">
+							<img src="images/testimonials/testimonials-5.jpg" alt="customer-name" />
+						</div>
+						<h4 class="mt-3 mb-0">Dzaki Madhani</h4>
+						<span class="subtitle">Frontend Web Developer at Telkom Indonesia</span>
+						<div class="bg-white padding-30 shadow-dark rounded triangle-top position-relative mt-4">
+							<p class="mb-0">Affan has a high spirit in developing the skills he has, good communication, humble, and
+								is able to
+								solve problems quite well in his own way. Affan doesn't need to talk much to tell people around with the
+								talent he has, he just proves it by what he does.</p>
+						</div>
+					</div>
+
 				</div>
-				
-				<!-- testimonial item -->
-				<div class="testimonial-item text-center mx-auto">
-					<div class="thumb mb-3 mx-auto">
-						<img src="images/testimonials/renalto.jpg" alt="customer-name" />						
-					</div>
-					<h4 class="mt-3 mb-0">Renalto Wangistu</h4>
-					<span class="subtitle">Product Manager at CXO CT Corp</span>
-					<div class="bg-white padding-30 shadow-dark rounded triangle-top position-relative mt-4">
-						<p class="mb-0">During my time working at CXO, I was managing Affan directly and I was suprised by his strong work ethic and go getter attitude. I think with this attitude combined with his knowledge, he will do great things. Wish you all the best Fan</p>
-					</div>
-				</div>
-				
-				<!-- testimonial item -->
-				<div class="testimonial-item text-center mx-auto">
-					<div class="thumb mb-3 mx-auto">
-						<img src="images/testimonials/testimonials-1.jpg" alt="customer-name" />						
-					</div>
-					<h4 class="mt-3 mb-0">David Gunawan</h4>
-					<span class="subtitle">Network Telecommunications Laboratory Manager at Telkom Indonesia</span>
-					<div class="bg-white padding-30 shadow-dark rounded triangle-top position-relative mt-4">
-						<p class="mb-0">Mas Affan merupakan pribadi yang semangat, disiplin, cepat belajar hal yang baru, dan dapat bekerjasama
-							dengan sangat baik. Selama menjadiinternship di Telkom Direktorat Digital Business selama 6 bulan, Mas
-							Affan bergabung dalam 2 project internal kami dalam pengembangan website sebagai front-end developer
-							dengan hasil dan performa melebihi target yang diharapkan. Semoga Mas Affan sehat dan sukses selalu :)</p>
-					</div>
-				</div>
-				
-				<!-- testimonial item -->
-				<div class="testimonial-item text-center mx-auto">
-					<div class="thumb mb-3 mx-auto">
-						<img src="images/testimonials/testimonials-2.jpg" alt="customer-name" />						
-					</div>
-					<h4 class="mt-3 mb-0">Navya Kirana Safitri</h4>
-					<span class="subtitle">Document Engineer Intern at Telkom DDB</span>
-					<div class="bg-white padding-30 shadow-dark rounded triangle-top position-relative mt-4">
-						<p class="mb-0">He is kinda fast learner, having strong interest in Internet of Things. Workaholic, good problem solver
-							and also wise man. The best team mate ever!.</p>
-					</div>
-				</div>
 
-				<!-- testimonial item -->
-				<div class="testimonial-item text-center mx-auto">
-					<div class="thumb mb-3 mx-auto">
-						<img src="images/testimonials/testimonials-3.jpg" alt="customer-name" />						
-					</div>
-					<h4 class="mt-3 mb-0">Ciara Nurdenara</h4>
-					<span class="subtitle">Computer Science Student at Telkom University</span>
-					<div class="bg-white padding-30 shadow-dark rounded triangle-top position-relative mt-4">
-						<p class="mb-0">Affan has an excellent communication skills, Initiative, adaptable, involved in most of the project and
-							great influencing skill.</p>
-					</div>
-				</div>
-
-				<!-- testimonial item -->
-				<div class="testimonial-item text-center mx-auto">
-					<div class="thumb mb-3 mx-auto">
-						<img src="images/testimonials/testimonials-4.jpg" alt="customer-name" />						
-					</div>
-					<h4 class="mt-3 mb-0">Alfan Baharudin</h4>
-					<span class="subtitle">Front-end Web Developer Intern at Telkom DDB</span>
-					<div class="bg-white padding-30 shadow-dark rounded triangle-top position-relative mt-4">
-						<p class="mb-0">Menurut saya, Affan merupakan partner yang sangat baik, sangat ramah, dan cepat berbaur dengan siapapun.
-							Dalam mengerjakan tugasnya pun sangat cepat. Cara dia berkomunikasi dan mengajarkan sesuatu bersama
-							orang lain juga mudah dipahami. Saat ada materi baru pun cepat memahaminya. Bisa dikatakan, dia sangat
-							cekatan dan bisa memberikan motivasi kepada semua partnernyaa. Sangat rekomendasi karena dia mudah
-							beradaptasi dalam kondisi apapun.</p>
-					</div>
-				</div>
-
-				<!-- testimonial item -->
-				<div class="testimonial-item text-center mx-auto">
-					<div class="thumb mb-3 mx-auto">
-						<img src="images/testimonials/testimonials-5.jpg" alt="customer-name" />						
-					</div>
-					<h4 class="mt-3 mb-0">Dzaki Madhani</h4>
-					<span class="subtitle">Frontend Web Developer at Telkom Indonesia</span>
-					<div class="bg-white padding-30 shadow-dark rounded triangle-top position-relative mt-4">
-						<p class="mb-0">Affan has a high spirit in developing the skills he has, good communication, humble, and is able to
-							solve problems quite well in his own way. Affan doesn't need to talk much to tell people around with the
-							talent he has, he just proves it by what he does.</p>
-					</div>
-				</div>
-
-			</div>
-
-			<!-- <div class="row">
+				<!-- <div class="row">
 				<div class="col-md-3 col-6">
 					
 					<div class="client-item">
@@ -1173,64 +1376,68 @@
 				</div>
 			</div> -->
 
-		</div>
+			</div>
 
-	</section>
-	
-	<!-- section blog -->
-	<section id="blog">
+		</section>
 
-		<div class="container">
-			
-			<!-- section title -->
-			<h2 class="section-title wow fadeInUp">Latest Posts</h2>
+		<!-- section blog -->
+		<section id="blog">
 
-			<div class="spacer" data-height="60"></div>
-			
-			<div class="row blog-wrapper">
-				
-				<div class="col-md-4">
-					<!-- blog item -->
-					<div class="blog-item rounded bg-white shadow-dark wow fadeIn">
-						<div class="thumb">
-							<a href="https://affanhasby.medium.com/ux-case-study-halaman-login-apps-my-telkomsel-f66f8c42f5b2">
-								<span class="category">UX Case Study</span>
-							</a>
-							<a href="https://affanhasby.medium.com/ux-case-study-halaman-login-apps-my-telkomsel-f66f8c42f5b2">
-								<img src="images/telkomsel.svg" alt="blog-title" />
-							</a>
-						</div>
-						<div class="details">
-							<h4 class="my-0 title"><a href="https://affanhasby.medium.com/ux-case-study-halaman-login-apps-my-telkomsel-f66f8c42f5b2">UX Case Study — Halaman Login Apps My Telkomsel</a></h4>
-							<ul class="list-inline meta mb-0 mt-2">
-								<li class="list-inline-item">08 September, 2021</li>
-								<li class="list-inline-item">Affan</li>
-							</ul>
-						</div>
-					</div>
-				</div>
+			<div class="container">
 
-				<div class="col-md-4">
-					<div class="blog-item rounded bg-white shadow-dark wow fadeIn">
-						<div class="thumb">
-							<a href="https://affanhasby.medium.com/generasi-gigih-program-apa-sih-521bd82a8d55">
-								<span class="category">Program</span>
-							</a>
-							<a href="https://affanhasby.medium.com/generasi-gigih-program-apa-sih-521bd82a8d55">
-								<img src="images/gigih.svg" alt="blog-title" />
-							</a>
-						</div>
-						<div class="details">
-							<h4 class="my-0 title"><a href="https://affanhasby.medium.com/generasi-gigih-program-apa-sih-521bd82a8d55">Generasi Gigih?, Program apa sih?</a></h4>
-							<ul class="list-inline meta mb-0 mt-2">
-								<li class="list-inline-item">21 June, 2021</li>
-								<li class="list-inline-item">Affan</li>
-							</ul>
+				<!-- section title -->
+				<h2 class="section-title wow fadeInUp">Latest Posts</h2>
+
+				<div class="spacer" data-height="60"></div>
+
+				<div class="row blog-wrapper">
+
+					<div class="col-md-4">
+						<!-- blog item -->
+						<div class="blog-item rounded bg-white shadow-dark wow fadeIn">
+							<div class="thumb">
+								<a href="https://affanhasby.medium.com/ux-case-study-halaman-login-apps-my-telkomsel-f66f8c42f5b2">
+									<span class="category">UX Case Study</span>
+								</a>
+								<a href="https://affanhasby.medium.com/ux-case-study-halaman-login-apps-my-telkomsel-f66f8c42f5b2">
+									<img src="images/telkomsel.svg" alt="blog-title" />
+								</a>
+							</div>
+							<div class="details">
+								<h4 class="my-0 title"><a
+										href="https://affanhasby.medium.com/ux-case-study-halaman-login-apps-my-telkomsel-f66f8c42f5b2">UX
+										Case Study — Halaman Login Apps My Telkomsel</a></h4>
+								<ul class="list-inline meta mb-0 mt-2">
+									<li class="list-inline-item">08 September, 2021</li>
+									<li class="list-inline-item">Affan</li>
+								</ul>
+							</div>
 						</div>
 					</div>
-				</div>
 
-				<!-- <div class="col-md-4">
+					<div class="col-md-4">
+						<div class="blog-item rounded bg-white shadow-dark wow fadeIn">
+							<div class="thumb">
+								<a href="https://affanhasby.medium.com/generasi-gigih-program-apa-sih-521bd82a8d55">
+									<span class="category">Program</span>
+								</a>
+								<a href="https://affanhasby.medium.com/generasi-gigih-program-apa-sih-521bd82a8d55">
+									<img src="images/gigih.svg" alt="blog-title" />
+								</a>
+							</div>
+							<div class="details">
+								<h4 class="my-0 title"><a
+										href="https://affanhasby.medium.com/generasi-gigih-program-apa-sih-521bd82a8d55">Generasi Gigih?,
+										Program apa sih?</a></h4>
+								<ul class="list-inline meta mb-0 mt-2">
+									<li class="list-inline-item">21 June, 2021</li>
+									<li class="list-inline-item">Affan</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<!-- <div class="col-md-4">
 					<div class="blog-item rounded bg-white shadow-dark wow fadeIn">
 						<div class="thumb">
 							<a href="#">
@@ -1250,18 +1457,18 @@
 					</div>
 				</div> -->
 
+				</div>
+
 			</div>
 
-		</div>
+		</section>
 
-	</section>
-	
-	<!-- section contact -->
-	<section id="contact">
+		<!-- section contact -->
+		<!-- <section id="contact">
 
 		<div class="container">
 			
-			<!-- section title -->
+		
 			<h2 class="section-title wow fadeInUp">Get In Touch</h2>
 
 			<div class="spacer" data-height="60"></div>
@@ -1269,7 +1476,7 @@
 			<div class="row">
 				
 				<div class="col-md-4">
-					<!-- contact info -->
+				
 					<div class="contact-info">
 						<h3 class="wow fadeInUp">Let's talk about everything!</h3>
 						<p class="wow fadeInUp">Don't like forms? Send me an <a href="mailto:name@example.com">email</a>. 👋</p>
@@ -1277,14 +1484,14 @@
 				</div>
 
 				<div class="col-md-8">
-					<!-- Contact Form -->
+					
 					<form id="contact-form" class="contact-form mt-6" method="post" action="mailto:hello.hasby@gmail.com" enctype="text/plain">
 						
 						<div class="messages"></div>
 						
 						<div class="row">
 							<div class="column col-md-6">
-								<!-- Name input -->
+						
 								<div class="form-group">
 									<input type="text" class="form-control" name="InputName" id="InputName" placeholder="Your name" required="required" data-error="Name is required.">
 									<div class="help-block with-errors"></div>
@@ -1292,7 +1499,7 @@
 							</div>
 							
 							<div class="column col-md-6">
-								<!-- Email input -->
+						
 								<div class="form-group">
 									<input type="email" class="form-control" id="InputEmail" name="InputEmail" placeholder="Email address" required="required" data-error="Email is required.">
 									<div class="help-block with-errors"></div>
@@ -1300,7 +1507,7 @@
 							</div>
 
 							<div class="column col-md-12">
-								<!-- Email input -->
+							
 								<div class="form-group">
 									<input type="text" class="form-control" id="InputSubject" name="InputSubject" placeholder="Subject" required="required" data-error="Subject is required.">
 									<div class="help-block with-errors"></div>
@@ -1308,7 +1515,7 @@
 							</div>
 					
 							<div class="column col-md-12">
-								<!-- Message textarea -->
+						
 								<div class="form-group">
 									<textarea name="InputMessage" id="InputMessage" class="form-control" rows="5" placeholder="Message" required="required" data-error="Message is required."></textarea>
 									<div class="help-block with-errors"></div>
@@ -1316,43 +1523,44 @@
 							</div>
 						</div>
 
-						<button type="submit" name="submit" id="submit" value="Submit" class="btn btn-default">Send Message</button><!-- Send Button -->
+						<button type="submit" name="submit" id="submit" value="Submit" class="btn btn-default">Send Message</button>
 
 					</form>
-					<!-- Contact Form end -->
+				
 				</div>
 
 			</div>
 
 		</div>
 
-	</section>
+	</section> -->
 
-	<div class="spacer" data-height="96"></div>
-	
-</main>
+		<div class="spacer" data-height="96"></div>
 
-<!-- Go to top button -->
-<a href="javascript:" id="return-to-top"><i class="fas fa-arrow-up"></i></a>
+	</main>
 
-<!-- SCRIPTS -->
-<script src="js/jquery-1.12.3.min.js"></script>
-<script src="js/jquery.easing.min.js"></script>
-<script src="js/jquery.waypoints.min.js"></script>
-<script src="js/jquery.counterup.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/isotope.pkgd.min.js"></script>
-<script src="js/infinite-scroll.min.js"></script>
-<script src="js/imagesloaded.pkgd.min.js"></script>
-<script src="js/slick.min.js"></script>
-<script src="js/contact.js"></script>
-<script src="js/validator.js"></script>
-<script src="js/wow.min.js"></script>
-<script src="js/morphext.min.js"></script>
-<script src="js/parallax.min.js"></script>
-<script src="js/jquery.magnific-popup.min.js"></script>
-<script src="js/custom.js"></script>
+	<!-- Go to top button -->
+	<a href="javascript:" id="return-to-top"><i class="fas fa-arrow-up"></i></a>
+
+	<!-- SCRIPTS -->
+	<script src="js/jquery-1.12.3.min.js"></script>
+	<script src="js/jquery.easing.min.js"></script>
+	<script src="js/jquery.waypoints.min.js"></script>
+	<script src="js/jquery.counterup.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/isotope.pkgd.min.js"></script>
+	<script src="js/infinite-scroll.min.js"></script>
+	<script src="js/imagesloaded.pkgd.min.js"></script>
+	<script src="js/slick.min.js"></script>
+	<script src="js/contact.js"></script>
+	<script src="js/validator.js"></script>
+	<script src="js/wow.min.js"></script>
+	<script src="js/morphext.min.js"></script>
+	<script src="js/parallax.min.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/custom.js"></script>
 
 </body>
+
 </html>
