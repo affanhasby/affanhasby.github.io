@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+<title>A Journey in Pixels — Affan Hasby</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="quest.css" />
+
+<!-- Crisp Chat (hidden by default, opened from Park Signpost CTA) -->
+<script type="text/javascript">
+  window.$crisp = [];
+  window.CRISP_WEBSITE_ID = "b908d234-adf2-422d-9f02-f7f52081ff14";
+  // Hide launcher immediately; only show when user clicks "HUBUNGI AFFAN"
+  window.$crisp.push(["safe", true]);
+  window.$crisp.push(["do", "chat:hide"]);
+  // Re-hide whenever the user closes the chat
+  window.$crisp.push(["on", "chat:closed", function () {
+    window.$crisp.push(["do", "chat:hide"]);
+  }]);
+  (function () {
+    var d = document;
+    var s = d.createElement("script");
+    s.src = "https://client.crisp.chat/l.js";
+    s.async = 1;
+    d.getElementsByTagName("head")[0].appendChild(s);
+  })();
+
+  // Called by the Park Signpost "HUBUNGI AFFAN" button
+  window.openCrispChat = function () {
+    try {
+      window.$crisp.push(["do", "chat:show"]);
+      window.$crisp.push(["do", "chat:open"]);
+    } catch (e) { /* no-op */ }
+  };
+</script>
+</head>
+<body>
+
+<!-- Title -->
+<div id="title-screen" class="title-screen">
+  <div class="title-card">
+    <div class="title-badge" id="title-badge">PETUALANGAN INTERAKTIF</div>
+    <h1 class="title-name" id="title-name">A Journey in Pixels</h1>
+    <div class="title-subtitle" id="title-subtitle">Explore. Talk. Discover.</div>
+    <p class="title-desc" id="title-desc"></p>
+
+    <div class="title-legend">
+      <div class="legend-item"><div class="legend-icon move-icon">↑</div><span id="legend-move">Gerak: WASD / Arrow / Joystick</span></div>
+      <div class="legend-item"><div class="legend-icon">E</div><span id="legend-talk">Tekan E untuk interaksi</span></div>
+      <div class="legend-item"><div class="legend-icon">★</div><span id="legend-quest">Selesaikan 5 misi tersembunyi</span></div>
+    </div>
+
+    <div class="title-lang">
+      <button data-lang-btn="id" class="active" onclick="QuestGame.setLanguage('id')">BAHASA INDONESIA</button>
+      <button data-lang-btn="en" onclick="QuestGame.setLanguage('en')">ENGLISH</button>
+    </div>
+
+    <button class="title-start-btn" onclick="QuestGame.startGame()" id="title-start">MULAI PETUALANGAN</button>
+  </div>
+</div>
+
+<!-- Game -->
+<div id="game-root">
+  <canvas id="game-canvas"></canvas>
+</div>
+
+<!-- HUD top -->
+<div class="hud-top">
+  <div class="hud-cluster">
+    <div class="badge"><span class="dot"></span>A JOURNEY IN PIXELS</div>
+    <div class="badge zone"><span class="label" id="zone-label">ZONE</span><span id="zone-name">Park</span></div>
+  </div>
+  <div class="hud-cluster">
+    <div class="lang-toggle">
+      <button data-lang-btn="id" class="active" onclick="QuestGame.setLanguage('id')">ID</button>
+      <button data-lang-btn="en" onclick="QuestGame.setLanguage('en')">EN</button>
+    </div>
+    <button class="icon-btn" id="btn-mute" onclick="QuestGame.toggleMute()" title="Mute"><span class="mute-icon"></span></button>
+  </div>
+</div>
+
+<!-- Quest log -->
+<div class="quest-log">
+  <div class="header" onclick="QuestGame.toggleQuestLog()">
+    <div class="title" id="quest-title">Quests</div>
+    <div style="display:flex;align-items:center;gap:6px">
+      <span class="progress" id="quest-progress">0/6</span>
+      <button class="toggle">▾</button>
+    </div>
+  </div>
+  <div class="quest-list" id="quest-list"></div>
+</div>
+
+<!-- Dialog -->
+<div id="dialog-box" class="dialog-box" style="display:none">
+  <div class="speaker-row">
+    <div id="dialog-avatar" class="speaker-avatar">?</div>
+    <div>
+      <div id="dialog-speaker" class="speaker"></div>
+      <div id="dialog-role" class="speaker-role"></div>
+    </div>
+  </div>
+  <div id="dialog-text" class="text"></div>
+  <div class="hint">
+    <span><span id="dialog-progress"></span> · [E] <span id="dialog-continue">continue</span></span>
+    <span class="arrow">▾</span>
+  </div>
+</div>
+
+<!-- Interact prompt -->
+<div id="interact-prompt" class="interact-prompt" style="display:none">[E] Talk</div>
+
+<!-- Hint banner -->
+<div id="hint-banner" class="hint-banner">
+  <span class="arrow-ico">▸</span>
+  <div>
+    <div class="label" id="hint-label">PETUNJUK</div>
+    <div class="text" id="hint-text"></div>
+  </div>
+</div>
+
+<!-- Achievement toast -->
+<div id="achievement-toast" class="achievement-toast">
+  <div class="trophy">★</div>
+  <div>
+    <div class="label">ACHIEVEMENT</div>
+    <div class="title"></div>
+    <div class="desc"></div>
+  </div>
+</div>
+
+<!-- Fact toast -->
+<div id="fact-toast" class="fact-toast">
+  <div class="icon">✦</div>
+  <div>
+    <div class="label">FACT</div>
+    <div class="text"></div>
+  </div>
+</div>
+
+<!-- Info modal -->
+<div id="info-modal" class="info-modal" style="display:none">
+  <div class="panel">
+    <button class="close" onclick="QuestGame.closeInfoModal()">[ESC]</button>
+    <div class="label" id="info-label">▸ Park Signpost</div>
+    <div class="name">Affan Hasby</div>
+    <div class="role">Sr. Software Quality Assurance · Jakarta, Indonesia</div>
+    <div class="summary" id="info-summary"></div>
+    <div class="contact-row"><span class="k" id="contact-email">Email</span><span class="v"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2e464f5d4c574f48484f406e49434f4742004d4143">[email&#160;protected]</a></span></div>
+    <div class="contact-row"><span class="k" id="contact-linkedin">LinkedIn</span><span class="v">linkedin.com/in/affanhasby</span></div>
+    <div class="contact-row"><span class="k" id="contact-origin">Origin</span><span class="v">Boyolali, Jawa Tengah</span></div>
+    <div class="contact-row"><span class="k" id="contact-edu">Education</span><span class="v">MBA · S1 Informatika · Telkom U</span></div>
+    <button type="button" class="cta" id="info-cta" onclick="window.openCrispChat()">CONTACT AFFAN →</button>
+  </div>
+</div>
+
+<!-- Mobile controls -->
+<div class="mobile-controls">
+  <div class="dpad">
+    <div class="stick-base"></div>
+    <div class="stick"></div>
+  </div>
+  <button class="action-btn" id="action-btn">A</button>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="quest-i18n.js"></script>
+<script src="quest-audio.js"></script>
+<script src="quest-game.js"></script>
+</body>
+</html>
