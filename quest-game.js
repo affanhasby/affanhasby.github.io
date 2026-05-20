@@ -3,8 +3,10 @@
 const TILE = 32;
 const MAP_W = 56;
 const MAP_H = 36;
-const VIEW_W = 22 * TILE;
-const VIEW_H = 14 * TILE;
+// View dimensions are dynamic — adjusted in fitCanvas() based on screen.
+// Defaults are desktop landscape.
+let VIEW_W = 22 * TILE;
+let VIEW_H = 14 * TILE;
 
 const T = {
   GRASS: 0, PATH: 1, TREE: 2, FLOWER: 4, STONE: 7, BUSH: 3,
@@ -229,11 +231,43 @@ canvas.width = VIEW_W;
 canvas.height = VIEW_H;
 
 function fitCanvas() {
-  const padW = window.innerWidth < 700 ? 0 : 24;
-  const padH = window.innerWidth < 700 ? 0 : 24;
-  const sx = (window.innerWidth - padW) / VIEW_W;
-  const sy = (window.innerHeight - padH) / VIEW_H;
-  const s = Math.min(sx, sy, 2);
+  const w = window.innerWidth;
+  const h = window.innerHeight;
+  const isMobile = w < 700;
+  const isPortrait = h > w;
+
+  // Adjust internal canvas resolution per device orientation so the game
+  // feels equally large on phones, tablets, and desktops.
+  if (isMobile && isPortrait) {
+    VIEW_W = 14 * TILE; // 448px — narrower, more square
+    VIEW_H = 18 * TILE; // 576px — taller for portrait
+  } else if (isMobile) {
+    VIEW_W = 22 * TILE; // 704px — wide landscape
+    VIEW_H = 12 * TILE; // 384px — shorter for landscape phone
+  } else {
+    VIEW_W = 22 * TILE; // desktop default
+    VIEW_H = 14 * TILE;
+  }
+  canvas.width = VIEW_W;
+  canvas.height = VIEW_H;
+  ctx.imageSmoothingEnabled = false;
+
+  let s;
+  if (isMobile && isPortrait) {
+    // Fit by width, canvas fills screen horizontally
+    s = w / VIEW_W;
+    const maxByHeight = (h * 0.92) / VIEW_H;
+    s = Math.min(s, maxByHeight);
+  } else if (isMobile) {
+    const sx = w / VIEW_W;
+    const sy = h / VIEW_H;
+    s = Math.min(sx, sy);
+  } else {
+    const sx = (w - 24) / VIEW_W;
+    const sy = (h - 24) / VIEW_H;
+    s = Math.min(sx, sy, 2);
+  }
+
   canvas.style.width = (VIEW_W * s) + 'px';
   canvas.style.height = (VIEW_H * s) + 'px';
 }
@@ -793,7 +827,19 @@ let bugTargetTimer = 0;
 function update(dt) {
   if (game.state !== 'playing') return;
 
+  // Auto-clear stuck movement keys (safety net for phantom keydown events
+  // from OS gestures / accessibility features that fire arrow keys).
+  const now = Date.now();
+  for (const k of MOVE_KEYS) {
+    if (game.keys.has(k)) {
+      const t = keyTime.get(k) || 0;
+      if (now - t > 800) { game.keys.delete(k); keyTime.delete(k); }
+    }
+  }
+
   let dx = 0, dy = 0;
+  // Arrow keys + WASD. Auto-clear above mitigates phantom arrow events
+  // from OS gestures (Chrome on Mac trackpad sometimes fires ArrowRight on click).
   if (game.keys.has('arrowup') || game.keys.has('w')) dy -= 1;
   if (game.keys.has('arrowdown') || game.keys.has('s')) dy += 1;
   if (game.keys.has('arrowleft') || game.keys.has('a')) dx -= 1;
@@ -1297,11 +1343,25 @@ function renderTitleScreen() {
 }
 
 // ===== Input =====
+const MOVE_KEYS = ['arrowup','arrowdown','arrowleft','arrowright','w','a','s','d'];
+const keyTime = new Map(); // last keydown time per key, used to detect stuck keys
+function clearMovementKeys() {
+  for (const k of MOVE_KEYS) { game.keys.delete(k); keyTime.delete(k); }
+}
+
 window.addEventListener('keydown', e => {
   // Abaikan kalau user lagi ngetik di input/textarea/contenteditable (misal: chatbox Crisp)
   const tgt = e.target;
   if (tgt && (tgt.tagName === 'INPUT' || tgt.tagName === 'TEXTAREA' || tgt.isContentEditable)) return;
+  // Modifier shortcut (Cmd/Ctrl/Alt + key) — OS often swallows the matching keyup,
+  // which would leave the arrow/WASD key "stuck" and walk the player by itself.
+  // Skip adding to game.keys AND clear any movement keys that may already be stuck.
+  if (e.metaKey || e.ctrlKey || e.altKey) {
+    clearMovementKeys();
+    return;
+  }
   const k = e.key.toLowerCase();
+  keyTime.set(k, Date.now());
   if (game.state === 'title') {
     if (k === 'enter' || k === ' ') { startGame(); e.preventDefault(); }
     return;
@@ -1317,14 +1377,49 @@ window.addEventListener('keydown', e => {
   if (k === 'e' || k === 'enter' || k === ' ') interact();
 });
 window.addEventListener('keyup', e => {
-  const tgt = e.target;
-  if (tgt && (tgt.tagName === 'INPUT' || tgt.tagName === 'TEXTAREA' || tgt.isContentEditable)) return;
+  // Always clear the key from the game's pressed set, even if focus is in an input.
+  // Otherwise the key stays "stuck" and the player walks by itself.
   game.keys.delete(e.key.toLowerCase());
 });
+
+// Reset all input state when the window loses focus or becomes hidden.
+// Prevents "phantom walking" caused by keys/touches that release outside the page.
+function resetAllInput() {
+  game.keys.clear();
+  if (game.joystick) {
+    game.joystick.active = false;
+    game.joystick.dx = 0;
+    game.joystick.dy = 0;
+  }
+  const stick = document.querySelector('.dpad .stick');
+  if (stick) stick.style.transform = 'translate(0, 0)';
+}
+window.addEventListener('blur', resetAllInput);
+document.addEventListener('visibilitychange', () => { if (document.hidden) resetAllInput(); });
 canvas.addEventListener('click', () => {
   if (game.state === 'dialog') { advanceDialog(); return; }
   if (game.state === 'playing' && game.near) interact();
 });
+// Safety: clicking/touching the canvas (NOT the dpad) should never activate
+// the joystick. Also clear any stuck movement keys, since the click is a fresh
+// user action and any "held" key from before is almost certainly a phantom.
+canvas.addEventListener('mousedown', () => {
+  game.joystick.active = false;
+  game.joystick.dx = 0;
+  game.joystick.dy = 0;
+  clearMovementKeys();
+});
+canvas.addEventListener('touchstart', () => {
+  // Only reset if no joystick touch is currently active on the dpad
+  const dpad = document.querySelector('.dpad');
+  if (!dpad) return;
+  const r = dpad.getBoundingClientRect();
+  if (r.width === 0 || r.height === 0) {
+    game.joystick.active = false;
+    game.joystick.dx = 0;
+    game.joystick.dy = 0;
+  }
+}, { passive: true });
 
 // ===== Joystick =====
 function setupJoystick() {
@@ -1334,9 +1429,13 @@ function setupJoystick() {
   let touchId = null;
   let cx, cy;
   function start(e) {
+    const r = dpad.getBoundingClientRect();
+    // Safety: if the dpad is hidden (display:none on desktop), its rect is all zeros.
+    // Don't activate the joystick in that case — otherwise clicking anywhere computes
+    // a positive dx/dy from (0,0) and the player walks to the bottom-right by itself.
+    if (r.width === 0 || r.height === 0) return;
     const t = e.touches ? e.touches[0] : e;
     touchId = e.touches ? t.identifier : 'mouse';
-    const r = dpad.getBoundingClientRect();
     cx = r.left + r.width / 2;
     cy = r.top + r.height / 2;
     game.joystick.active = true;
@@ -1370,6 +1469,16 @@ function setupJoystick() {
   dpad.addEventListener('touchmove', move, { passive: false });
   dpad.addEventListener('touchend', end);
   dpad.addEventListener('touchcancel', end);
+  // Safety nets: if the touch ends or cancels anywhere (not just on the dpad),
+  // make sure the joystick resets. Without this, the player can "walk by itself"
+  // on mobile when the finger lifts off the dpad area.
+  window.addEventListener('touchend', e => {
+    if (touchId === null || touchId === 'mouse') return;
+    let stillThere = false;
+    for (const tc of e.touches) if (tc.identifier === touchId) { stillThere = true; break; }
+    if (!stillThere) end();
+  });
+  window.addEventListener('touchcancel', () => { if (touchId !== null && touchId !== 'mouse') end(); });
   dpad.addEventListener('mousedown', start);
   window.addEventListener('mousemove', e => { if (game.joystick.active && touchId === 'mouse') move(e); });
   window.addEventListener('mouseup', () => { if (touchId === 'mouse') end(); });
@@ -1445,6 +1554,21 @@ function setupActionBtn() {
 window.QuestGame = { startGame, closeInfoModal, setLanguage, toggleMute, toggleQuestLog };
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Detect real touch device — only then show mobile controls.
+  // Use screen size as primary signal because navigator.maxTouchPoints
+  // often false-positives on Windows laptops, hybrid devices, and fullscreen mode.
+  // Only treat as touch device if screen is small enough to BE a phone/tablet.
+  function applyTouchMode() {
+    const smallScreen = window.innerWidth < 900;
+    const hasTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+    const noHover = window.matchMedia && window.matchMedia('(hover: none)').matches;
+    // Only enable touch UI when BOTH small screen AND (touch OR no-hover)
+    const isTouch = smallScreen && (hasTouch || noHover);
+    document.body.classList.toggle('is-touch', isTouch);
+  }
+  applyTouchMode();
+  window.addEventListener('resize', applyTouchMode);
+
   renderTitleScreen();
   setupJoystick();
   setupActionBtn();

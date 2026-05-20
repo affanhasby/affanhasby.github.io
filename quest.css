@@ -796,6 +796,8 @@ html, body {
   z-index: 6;
   pointer-events: none;
 }
+/* Default: keep controls hidden. Only show when JS detects a real touch device. */
+body.is-touch .mobile-controls { display: block; }
 
 .dpad {
   position: absolute;
@@ -851,7 +853,7 @@ html, body {
 }
 
 @media (hover: none) and (pointer: coarse) {
-  .mobile-controls { display: block; }
+  /* legacy fallback — JS class is the primary trigger */
 }
 .mobile-controls.force-show { display: block !important; }
 
