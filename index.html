@@ -2,16 +2,20 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover" />
 <title>A Journey in Pixels — Affan Hasby</title>
 <!-- Favicon: pixel-art bug matching the in-game enemy -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' shape-rendering='crispEdges'><rect width='20' height='20' fill='%23161922'/><ellipse cx='10' cy='11' rx='7' ry='5' fill='%23c97e8a'/><rect x='4' y='9' width='12' height='2' fill='%23a01030'/><rect x='1' y='9' width='2' height='2' fill='%231a1a1a'/><rect x='17' y='9' width='2' height='2' fill='%231a1a1a'/><rect x='1' y='13' width='2' height='2' fill='%231a1a1a'/><rect x='17' y='13' width='2' height='2' fill='%231a1a1a'/><rect x='7' y='8' width='2' height='2' fill='%23fff'/><rect x='11' y='8' width='2' height='2' fill='%23fff'/><rect x='8' y='9' width='1' height='1' fill='%23000'/><rect x='12' y='9' width='1' height='1' fill='%23000'/></svg>" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="quest.css" />
+<link rel="stylesheet" href="quest.css?v=2" />
 
 <!-- Crisp Chat (hidden by default, opened from Park Signpost CTA) -->
+<style>
+  /* Make sure Crisp chat sits ABOVE the info modal on all devices */
+  #crisp-chatbox, .crisp-client { z-index: 9999999 !important; }
+</style>
 <script type="text/javascript">
   window.$crisp = [];
   window.CRISP_WEBSITE_ID = "b908d234-adf2-422d-9f02-f7f52081ff14";
@@ -33,6 +37,14 @@
   // Called by the Park Signpost "HUBUNGI AFFAN" button
   window.openCrispChat = function () {
     try {
+      // Close the info modal first — on mobile, Crisp goes full-screen and
+      // the modal would otherwise sit on top and block the chat.
+      if (window.QuestGame && window.QuestGame.closeInfoModal) {
+        // Temporarily disable Crisp auto-hide so closeInfoModal doesn't hide us
+        window._suppressCrispHide = true;
+        window.QuestGame.closeInfoModal();
+        window._suppressCrispHide = false;
+      }
       window.$crisp.push(["do", "chat:show"]);
       window.$crisp.push(["do", "chat:open"]);
     } catch (e) { /* no-op */ }
@@ -151,13 +163,26 @@
     <div class="name">Affan Hasby</div>
     <div class="role">Sr. Software Quality Assurance · Jakarta, Indonesia</div>
     <div class="summary" id="info-summary"></div>
-    <div class="contact-row"><span class="k" id="contact-email">Email</span><span class="v"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1971786a7b60787f7f7877597e74787075377a7674">[email&#160;protected]</a></span></div>
-    <div class="contact-row"><span class="k" id="contact-linkedin">LinkedIn</span><span class="v">linkedin.com/in/affanhasby</span></div>
+    <div class="contact-row"><span class="k" id="contact-email">Email</span><span class="v" id="contact-email-value">—</span></div>
+    <div class="contact-row"><span class="k" id="contact-linkedin">LinkedIn</span><span class="v" id="contact-linkedin-value">—</span></div>
     <div class="contact-row"><span class="k" id="contact-origin">Origin</span><span class="v">Boyolali, Jawa Tengah</span></div>
     <div class="contact-row"><span class="k" id="contact-edu">Education</span><span class="v">MBA · S1 Informatika · Telkom U</span></div>
-    <button type="button" class="cta" id="info-cta" onclick="window.openCrispChat()">CONTACT AFFAN →</button>
+    <button type="button" class="cta" id="info-cta" onclick="window.openCrispChat()">CONTACT AFFAN</button>
   </div>
 </div>
+
+<!-- Render email & linkedin via JS so Cloudflare/GitHub Pages email-protection
+     can't auto-obfuscate them into "[email protected]" strings. -->
+<script>
+  (function () {
+    const emailUser = 'hasbyaffan';
+    const emailDomain = 'gmail.com';
+    const emailEl = document.getElementById('contact-email-value');
+    if (emailEl) emailEl.textContent = emailUser + '@' + emailDomain;
+    const liEl = document.getElementById('contact-linkedin-value');
+    if (liEl) liEl.textContent = 'linkedin.com/in/affanhasby';
+  })();
+</script>
 
 <!-- Mobile controls -->
 <div class="mobile-controls">
@@ -168,8 +193,8 @@
   <button class="action-btn" id="action-btn">E</button>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="quest-i18n.js"></script>
-<script src="quest-audio.js"></script>
-<script src="quest-game.js"></script>
+<script src="quest-i18n.js?v=2"></script>
+<script src="quest-audio.js?v=2"></script>
+<script src="quest-game.js?v=2"></script>
 </body>
 </html>

@@ -90,7 +90,7 @@ window.QuestI18n = {
       summary: 'Senior Software Quality Assurance yang sebelumnya pernah berkarier sebagai <b style="color:var(--text)">Frontend Developer</b>, <b style="color:var(--text)">Project Manager</b>, dan <b style="color:var(--text)">Product Manager</b>. Kombinasi pengalaman ini membentuk cara pandang holistik terhadap kualitas produk.',
       stats: { containment: 'Defect Containment', coverage: 'Automation Coverage', savings: 'Annual Savings', years: 'Years in Tech' },
       contact: { email: 'Email', linkedin: 'LinkedIn', origin: 'Asal', edu: 'Pendidikan' },
-      contactBtn: 'HUBUNGI AFFAN →'
+      contactBtn: 'HUBUNGI AFFAN'
     },
     portal: { msg: 'Portal kembali ke menu utama', press: 'untuk masuk' }
   },
@@ -178,7 +178,7 @@ window.QuestI18n = {
       summary: 'A Senior Software Quality Assurance who previously worked as a <b style="color:var(--text)">Frontend Developer</b>, <b style="color:var(--text)">Project Manager</b>, and <b style="color:var(--text)">Product Manager</b>. This blend of experience shapes a holistic perspective on product quality.',
       stats: { containment: 'Defect Containment', coverage: 'Automation Coverage', savings: 'Annual Savings', years: 'Years in Tech' },
       contact: { email: 'Email', linkedin: 'LinkedIn', origin: 'From', edu: 'Education' },
-      contactBtn: 'CONTACT AFFAN →'
+      contactBtn: 'CONTACT AFFAN'
     },
     portal: { msg: 'Portal back to main menu', press: 'to enter' }
   }

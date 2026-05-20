@@ -1230,7 +1230,8 @@ function openInfoModal() {
 function closeInfoModal() {
   game.state = 'playing';
   document.getElementById('info-modal').style.display = 'none';
-  // Tutup juga chatbox Crisp kalau lagi terbuka
+  // Tutup juga chatbox Crisp kalau lagi terbuka (skip ini kalau lagi mau buka chat)
+  if (window._suppressCrispHide) return;
   try {
     if (window.$crisp) {
       window.$crisp.push(['do', 'chat:close']);
