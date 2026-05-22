@@ -1,6 +1,6 @@
 /* AFFAN QUEST, i18n strings */
 window.QuestI18n = {
-  current: 'id',
+  current: 'en',
   setLang(l) { this.current = l; },
   t(key) {
     const dict = this[this.current] || this.id;
@@ -11,10 +11,11 @@ window.QuestI18n = {
     title: { name: 'A Journey in Pixels', subtitle: 'Explore. Talk. Discover.',
       badge: 'PETUALANGAN INTERAKTIF',
       desc: 'Jelajahi peta karir Affan Hasby. Ngobrol dengan rekan kerja, tangkap bug, kumpulkan fakta tersembunyi di sepanjang jalan.',
-      start: 'MULAI PETUALANGAN', version: 'v0.5 · MVP',
+      start: 'MULAI PETUALANGAN', howto: 'CARA BERMAIN', version: 'v1.0',
       legend_move: 'Gerak: WASD / Arrow / Joystick',
       legend_talk: 'Tekan E untuk berinteraksi',
-      legend_quest: 'Selesaikan 5 misi yang ada' },
+      legend_quest: 'Selesaikan 5 misi yang ada',
+      splash: ['Tangkap bugnya!', 'Gotta catch ’em all!', 'Built with ❤️', 'Yuk main!'] },
     hud: { zone: 'AREA', title: 'AFFAN QUEST' },
     controls: { move: 'gerak', talk: 'interaksi', close: 'tutup' },
     quests: { title: 'Misi',
@@ -47,6 +48,17 @@ window.QuestI18n = {
     },
     npcs: {
       'stockbit-lead': { name: 'Head of QA', role: 'Stockbit',
+        intro: 'Halo! Ini kantor <b>Stockbit</b>. Saya Head of QA, atasan Affan.',
+        choicePrompt: 'Mau tau lebih soal Affan di sini lewat <b>mini-game</b> (tangkap bug!) atau langsung saya jelaskan?',
+        choiceGame: '🐛 Main mini-game',
+        choiceDirect: '💬 Langsung jelaskan',
+        facts: [
+          'Affan adalah <b>Senior QA</b> kami sejak Februari 2025, naik dari QA Tester.',
+          "Pencapaian: automation coverage <span class='accent'>90%+</span>, defect containment <span class='accent'>90%+</span>, dan <b>mengurangi waktu testing</b> serta <b>meningkatkan kualitas produk</b> lewat optimasi workflow.",
+          'Mindset-nya bukan cuma cari bug, tapi <b>mencegah bug terjadi sejak awal</b>.'
+        ],
+        outroWin: 'Mantap! Kamu udah selangkah lebih dekat kenal Affan. 🎉',
+        outroSkip: '',
         d: [
           'Halo! Ini kantor <b>Stockbit</b>. Saya Head of QA, atasan Affan.',
           'Affan adalah <b>Senior QA</b> kami sejak Februari 2025, naik dari QA Tester.',
@@ -92,17 +104,48 @@ window.QuestI18n = {
       contact: { email: 'Email', linkedin: 'LinkedIn', origin: 'Asal', edu: 'Pendidikan' },
       contactBtn: 'HUBUNGI AFFAN'
     },
-    portal: { msg: 'Portal kembali ke menu utama', press: 'untuk masuk' }
+    portal: { msg: 'Portal kembali ke menu utama', press: 'untuk masuk' },
+    howto: {
+      title: 'Cara Bermain',
+      controls: 'KONTROL',
+      tips: 'TIPS',
+      move: 'Gerak karakter dengan <b>WASD</b> atau <b>Arrow keys</b>.<br/>Mobile: pakai <b>joystick</b> di pojok kiri-bawah.',
+      talk: 'Tekan <b>E</b> untuk berinteraksi dengan NPC, papan, atau objek.<br/>Mobile: tombol <b>E</b> di pojok kanan-bawah.',
+      quest: 'Selesaikan 5 misi tersembunyi sambil eksplorasi peta.',
+      tip1: 'Ngobrol dengan setiap NPC untuk tau cerita karir Affan.',
+      tip2: 'Kumpulkan <b>orb kuning</b> di sepanjang jalan untuk fakta tersembunyi.',
+      tip3: 'Tangkap bug merah yang berkeliaran sebelum mereka lolos.',
+      tip4: 'Baca papan petunjuk di tengah taman untuk profil lengkap.',
+      cta: 'Mulai Petualangan'
+    },
+    minigame: {
+      title: '🐛 BUG HUNT',
+      subtitle: 'Tangkap bug sebelum lolos ke production!',
+      caught: 'Tangkap',
+      lives: 'Nyawa',
+      hint: 'Tap untuk tembak bug',
+      production: 'PRODUCTION',
+      bugCaught: 'BUG TERTANGKAP',
+      continueBtn: 'Lanjut →',
+      winTitle: 'Semua Bug Tertangkap!',
+      winText: 'Kamu udah tau semua hal penting tentang Affan di Stockbit.',
+      winBtn: 'Selesai',
+      loseTitle: 'Game Over',
+      loseText: 'Ada beberapa bug yang lolos. Mau coba lagi atau dengar sisanya langsung?',
+      retryBtn: 'Coba lagi',
+      skipBtn: 'Skip, dengar sisanya'
+    }
   },
 
   en: {
     title: { name: 'A Journey in Pixels', subtitle: 'Explore. Talk. Discover.',
       badge: 'INTERACTIVE ADVENTURE',
       desc: 'Explore Affan Hasby\'s career map. Talk to colleagues, catch bugs, and collect hidden facts along the path.',
-      start: 'START ADVENTURE', version: 'v0.5 · MVP',
+      start: 'START ADVENTURE', howto: 'HOW TO PLAY', version: 'v1.0',
       legend_move: 'Move: WASD / Arrows / Joystick',
       legend_talk: 'Press E to interact',
-      legend_quest: 'Complete 5 quests' },
+      legend_quest: 'Complete 5 quests',
+      splash: ['Catch them all!', 'Gotta catch ’em all!', 'Built with ❤️', "Let's play!"] },
     hud: { zone: 'ZONE', title: 'AFFAN QUEST' },
     controls: { move: 'move', talk: 'interact', close: 'close' },
     quests: { title: 'Quests',
@@ -135,6 +178,17 @@ window.QuestI18n = {
     },
     npcs: {
       'stockbit-lead': { name: 'Head of QA', role: 'Stockbit',
+        intro: "Hey! This is <b>Stockbit</b>'s office. I'm the Head of QA, Affan's manager.",
+        choicePrompt: 'Wanna learn about Affan via a <b>mini-game</b> (catch bugs!) or just have me explain it?',
+        choiceGame: '🐛 Play mini-game',
+        choiceDirect: '💬 Just explain',
+        facts: [
+          "Affan is our <b>Senior QA</b> since February 2025, promoted from QA Tester.",
+          "Achievements: automation coverage <span class='accent'>90%+</span>, defect containment <span class='accent'>90%+</span>, and <b>reduced testing time</b> while <b>improving product quality</b> through workflow optimization.",
+          "His mindset isn't just about catching bugs, it's about <b>preventing them from happening in the first place</b>."
+        ],
+        outroWin: "Nice! You're one step closer to knowing Affan. 🎉",
+        outroSkip: '',
         d: [
           "Hey! This is <b>Stockbit</b>'s office. I'm the Head of QA, Affan's manager.",
           "Affan is our <b>Senior QA</b> since February 2025, promoted from QA Tester.",
@@ -180,6 +234,36 @@ window.QuestI18n = {
       contact: { email: 'Email', linkedin: 'LinkedIn', origin: 'From', edu: 'Education' },
       contactBtn: 'CONTACT AFFAN'
     },
-    portal: { msg: 'Portal back to main menu', press: 'to enter' }
+    portal: { msg: 'Portal back to main menu', press: 'to enter' },
+    howto: {
+      title: 'How to Play',
+      controls: 'CONTROLS',
+      tips: 'TIPS',
+      move: 'Move your character with <b>WASD</b> or <b>Arrow keys</b>.<br/>Mobile: use the <b>joystick</b> at the bottom-left.',
+      talk: 'Press <b>E</b> to interact with NPCs, signs, or objects.<br/>Mobile: <b>E</b> button at the bottom-right.',
+      quest: 'Complete 5 hidden quests while exploring the map.',
+      tip1: 'Talk to every NPC to learn about Affan\'s career.',
+      tip2: 'Collect <b>yellow orbs</b> along paths for hidden facts.',
+      tip3: 'Catch the red wandering bugs before they escape.',
+      tip4: 'Read the park signpost for the full profile.',
+      cta: 'Start Adventure'
+    },
+    minigame: {
+      title: '🐛 BUG HUNT',
+      subtitle: 'Catch the bugs before they reach production!',
+      caught: 'Caught',
+      lives: 'Lives',
+      hint: 'Tap to shoot the bugs',
+      production: 'PRODUCTION',
+      bugCaught: 'BUG CAUGHT',
+      continueBtn: 'Continue →',
+      winTitle: 'All Bugs Caught!',
+      winText: 'You now know everything important about Affan at Stockbit.',
+      winBtn: 'Done',
+      loseTitle: 'Game Over',
+      loseText: 'Some bugs slipped through. Want to retry or hear the rest directly?',
+      retryBtn: 'Retry',
+      skipBtn: 'Skip, just tell me'
+    }
   }
 };

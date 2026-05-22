@@ -236,40 +236,35 @@ function fitCanvas() {
   const isMobile = w < 700;
   const isPortrait = h > w;
 
-  // Adjust internal canvas resolution per device orientation so the game
-  // feels equally large on phones, tablets, and desktops.
+  // Fill the entire viewport on ALL devices — no black bars. We match the
+  // canvas internal aspect ratio to the viewport by picking tile-count for the
+  // constrained dimension and letting the other dimension stretch.
+  // Camera follows player, so the player stays centered regardless.
   if (isMobile && isPortrait) {
-    VIEW_W = 14 * TILE; // 448px — narrower, more square
-    VIEW_H = 18 * TILE; // 576px — taller for portrait
+    const tilesWide = w < 360 ? 11 : (w < 420 ? 12 : 14);
+    VIEW_W = tilesWide * TILE;
+    VIEW_H = Math.round(VIEW_W * (h / w));
   } else if (isMobile) {
-    VIEW_W = 22 * TILE; // 704px — wide landscape
-    VIEW_H = 12 * TILE; // 384px — shorter for landscape phone
+    // Landscape phone — pick height in tiles
+    const tilesTall = h < 360 ? 10 : 12;
+    VIEW_H = tilesTall * TILE;
+    VIEW_W = Math.round(VIEW_H * (w / h));
+  } else if (isPortrait) {
+    // Tablet / desktop portrait
+    VIEW_W = 16 * TILE;
+    VIEW_H = Math.round(VIEW_W * (h / w));
   } else {
-    VIEW_W = 22 * TILE; // desktop default
+    // Desktop / tablet landscape — base on height (14 tiles tall)
     VIEW_H = 14 * TILE;
+    VIEW_W = Math.round(VIEW_H * (w / h));
   }
   canvas.width = VIEW_W;
   canvas.height = VIEW_H;
   ctx.imageSmoothingEnabled = false;
 
-  let s;
-  if (isMobile && isPortrait) {
-    // Fit by width, canvas fills screen horizontally
-    s = w / VIEW_W;
-    const maxByHeight = (h * 0.92) / VIEW_H;
-    s = Math.min(s, maxByHeight);
-  } else if (isMobile) {
-    const sx = w / VIEW_W;
-    const sy = h / VIEW_H;
-    s = Math.min(sx, sy);
-  } else {
-    const sx = (w - 24) / VIEW_W;
-    const sy = (h - 24) / VIEW_H;
-    s = Math.min(sx, sy, 2);
-  }
-
-  canvas.style.width = (VIEW_W * s) + 'px';
-  canvas.style.height = (VIEW_H * s) + 'px';
+  // Always fill the viewport (no letterboxing)
+  canvas.style.width = w + 'px';
+  canvas.style.height = h + 'px';
 }
 window.addEventListener('resize', fitCanvas);
 fitCanvas();
@@ -1184,14 +1179,24 @@ function startDialog(npcId) {
   const data = window.QuestI18n.t(`npcs.${npcId}`);
   game.state = 'dialog';
   const npcMeta = NPCS.find(n => n.id === npcId);
+
+  // Special: stockbit-lead offers a choice between mini-game and direct info
+  let lines = data.d;
+  let mode = 'normal';
+  if (npcId === 'stockbit-lead' && data.intro && data.choicePrompt) {
+    lines = [data.intro, data.choicePrompt];
+    mode = 'stockbit-choice';
+  }
+
   game.dialog = {
     npcId,
     name: data.name,
     role: data.role,
     color: npcMeta?.color || '#c97e8a',
     avatar: npcMeta?.avatar || '?',
-    lines: data.d,
-    idx: 0, charIdx: 0, lastChar: 0, complete: false
+    lines,
+    idx: 0, charIdx: 0, lastChar: 0, complete: false,
+    mode,
   };
   if (!game.metNpcs.has(npcId)) {
     game.metNpcs.add(npcId);
@@ -1207,9 +1212,74 @@ function startDialog(npcId) {
   if (window.GameAudio) window.GameAudio.dialogOpen();
 }
 
+// Render dialog with a custom set of lines (e.g. after mini-game outcome)
+function startCustomDialog(npcId, lines) {
+  const data = window.QuestI18n.t(`npcs.${npcId}`);
+  const npcMeta = NPCS.find(n => n.id === npcId);
+  game.state = 'dialog';
+  game.dialog = {
+    npcId,
+    name: data.name,
+    role: data.role,
+    color: npcMeta?.color || '#c97e8a',
+    avatar: npcMeta?.avatar || '?',
+    lines,
+    idx: 0, charIdx: 0, lastChar: 0, complete: false,
+    mode: 'normal',
+  };
+  if (window.GameAudio) window.GameAudio.dialogOpen();
+}
+
+function handleStockbitChoice(choice) {
+  const d = game.dialog;
+  if (!d) return;
+  const data = window.QuestI18n.t(`npcs.${d.npcId}`);
+  // hide choice UI
+  const choicesEl = document.getElementById('dialog-choices');
+  choicesEl.style.display = 'none';
+  choicesEl.dataset.shown = 'false';
+
+  if (choice === 'game') {
+    closeDialog();
+    game.state = 'minigame'; // freeze main game while mini-game is open
+    // Also clear movement keys so player doesn't keep walking
+    if (typeof clearMovementKeys === 'function') clearMovementKeys();
+    if (window.StockbitMiniGame) {
+      window.StockbitMiniGame.start({
+        facts: data.facts,
+        onComplete: (result) => onStockbitMinigameComplete(result, data),
+      });
+    }
+  } else {
+    // direct path: append remaining info lines and continue
+    d.lines = d.lines.concat(data.facts);
+    d.mode = 'normal';
+    d.idx++; // advance past the choicePrompt to first fact
+    d.charIdx = 0; d.complete = false; d.lastChar = 0;
+  }
+}
+
+function onStockbitMinigameComplete(result, data) {
+  // Always return to playing state. Optionally re-open dialog with outro.
+  game.state = 'playing';
+  if (result.outcome === 'win') {
+    startCustomDialog('stockbit-lead', [data.outroWin || '']);
+  } else if (result.outcome === 'skip') {
+    // show unrevealed facts + outroSkip
+    const caught = result.caught || 0;
+    const remaining = (data.facts || []).slice(caught);
+    const lines = remaining.slice();
+    if (data.outroSkip) lines.push(data.outroSkip);
+    if (lines.length) startCustomDialog('stockbit-lead', lines);
+  }
+  // outcome 'closed' → no re-open; player closed minigame deliberately
+}
+
 function advanceDialog() {
   const d = game.dialog;
   if (!d) return;
+  // Don't advance while waiting for a choice click
+  if (d.mode === 'stockbit-choice' && d.idx === d.lines.length - 1 && d.complete) return;
   const cur = d.lines[d.idx];
   if (!d.complete) { d.charIdx = cur.length; d.complete = true; return; }
   d.idx++;
@@ -1274,6 +1344,36 @@ function updateUI() {
     document.getElementById('dialog-text').innerHTML = visible + (d.complete ? '' : '<span style="opacity:0.3">▌</span>');
     document.getElementById('dialog-progress').textContent = `${d.idx + 1}/${d.lines.length}`;
     document.getElementById('dialog-continue').textContent = I('dialog.continue');
+
+    // Choice buttons (e.g. stockbit-lead game/direct prompt)
+    const choicesEl = document.getElementById('dialog-choices');
+    const hintEl = dialogEl.querySelector('.hint');
+    const isChoiceLine = d.mode === 'stockbit-choice' && d.idx === d.lines.length - 1 && d.complete;
+    if (isChoiceLine) {
+      if (choicesEl.dataset.shown !== 'true') {
+        const data = window.QuestI18n.t(`npcs.${d.npcId}`);
+        choicesEl.innerHTML = '';
+        const btnGame = document.createElement('button');
+        btnGame.className = 'dialog-choice-btn primary';
+        btnGame.innerHTML = data.choiceGame;
+        btnGame.addEventListener('click', () => handleStockbitChoice('game'));
+        const btnDirect = document.createElement('button');
+        btnDirect.className = 'dialog-choice-btn';
+        btnDirect.innerHTML = data.choiceDirect;
+        btnDirect.addEventListener('click', () => handleStockbitChoice('direct'));
+        choicesEl.appendChild(btnGame);
+        choicesEl.appendChild(btnDirect);
+        choicesEl.dataset.shown = 'true';
+      }
+      choicesEl.style.display = 'flex';
+      if (hintEl) hintEl.style.display = 'none';
+    } else {
+      if (choicesEl.dataset.shown === 'true') {
+        choicesEl.style.display = 'none';
+        choicesEl.dataset.shown = 'false';
+      }
+      if (hintEl) hintEl.style.display = '';
+    }
     dialogEl.style.display = 'block';
   } else dialogEl.style.display = 'none';
 
@@ -1332,16 +1432,111 @@ function renderInfoModal() {
 function renderTitleScreen() {
   const t = window.QuestI18n.t.bind(window.QuestI18n);
   const set = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
-  set('title-name', t('title.name'));
+  const setHTML = (id, val) => { const el = document.getElementById(id); if (el) el.innerHTML = val; };
   set('title-subtitle', t('title.subtitle'));
-  set('title-desc', t('title.desc'));
   set('title-start', t('title.start'));
+  set('title-howto', t('title.howto') || 'HOW TO PLAY');
   set('title-version', t('title.version'));
-  set('title-badge', t('title.badge'));
-  set('legend-move', t('title.legend_move'));
-  set('legend-talk', t('title.legend_talk'));
-  set('legend-quest', t('title.legend_quest'));
+
+  // Splash text — random pick from i18n splash array, rotates while on title
+  const splashEl = document.getElementById('title-splash');
+  if (splashEl) {
+    const splashes = t('title.splash');
+    if (Array.isArray(splashes) && splashes.length) {
+      // initial pick
+      let lastIdx = -1;
+      const pick = () => {
+        let i = Math.floor(Math.random() * splashes.length);
+        if (splashes.length > 1 && i === lastIdx) i = (i + 1) % splashes.length;
+        lastIdx = i;
+        splashEl.textContent = splashes[i];
+      };
+      pick();
+      // Rotate every 3.5s — only while title screen is visible
+      if (window._splashRotateId) clearInterval(window._splashRotateId);
+      window._splashRotateId = setInterval(() => {
+        const ts = document.getElementById('title-screen');
+        if (!ts || ts.classList.contains('hide')) return;
+        // Quick fade transition
+        splashEl.style.opacity = '0';
+        setTimeout(() => { pick(); splashEl.style.opacity = ''; }, 180);
+      }, 3500);
+    }
+  }
+
+  // How to Play modal strings
+  set('howto-title', t('howto.title'));
+  set('howto-section-controls', t('howto.controls'));
+  set('howto-section-tips', t('howto.tips'));
+  setHTML('howto-move', t('howto.move'));
+  setHTML('howto-talk', t('howto.talk'));
+  setHTML('howto-quest', t('howto.quest'));
+  const tipsEl = document.getElementById('howto-tips');
+  if (tipsEl) {
+    tipsEl.innerHTML = ['tip1','tip2','tip3','tip4']
+      .map(k => `<p>● ${t('howto.' + k)}</p>`).join('');
+  }
+  set('howto-cta', t('howto.cta'));
 }
+
+function openHowToPlay() {
+  const el = document.getElementById('howto-modal');
+  if (el) el.style.display = 'flex';
+}
+function closeHowToPlay() {
+  const el = document.getElementById('howto-modal');
+  if (el) el.style.display = 'none';
+}
+
+// ===== 3D Title parallax — tilt logo following cursor / device =====
+function setupTitle3D() {
+  const wrap = document.getElementById('title-3d-wrap');
+  const stage = document.querySelector('.title-stage');
+  if (!wrap || !stage) return;
+  let rafPending = false;
+  let targetRX = 0, targetRY = 0;
+  let curRX = 0, curRY = 0;
+
+  function applyTransform() {
+    rafPending = false;
+    // Ease toward target
+    curRX += (targetRX - curRX) * 0.12;
+    curRY += (targetRY - curRY) * 0.12;
+    wrap.style.transform = `rotateX(${curRX.toFixed(2)}deg) rotateY(${curRY.toFixed(2)}deg)`;
+    if (Math.abs(targetRX - curRX) > 0.05 || Math.abs(targetRY - curRY) > 0.05) {
+      rafPending = true;
+      requestAnimationFrame(applyTransform);
+    }
+  }
+  function schedule() {
+    if (!rafPending) { rafPending = true; requestAnimationFrame(applyTransform); }
+  }
+  function updateFromPointer(clientX, clientY) {
+    const r = stage.getBoundingClientRect();
+    const cx = r.left + r.width / 2;
+    const cy = r.top + r.height / 2;
+    const dx = (clientX - cx) / (r.width / 2);
+    const dy = (clientY - cy) / (r.height / 2);
+    targetRY = Math.max(-1, Math.min(1, dx)) * 12;
+    targetRX = -Math.max(-1, Math.min(1, dy)) * 8;
+    schedule();
+  }
+  document.addEventListener('mousemove', (e) => {
+    const titleEl = document.getElementById('title-screen');
+    if (!titleEl || titleEl.classList.contains('hide')) return;
+    updateFromPointer(e.clientX, e.clientY);
+  });
+  document.addEventListener('touchmove', (e) => {
+    const titleEl = document.getElementById('title-screen');
+    if (!titleEl || titleEl.classList.contains('hide')) return;
+    if (!e.touches[0]) return;
+    updateFromPointer(e.touches[0].clientX, e.touches[0].clientY);
+  }, { passive: true });
+  // Recenter when leaving
+  document.addEventListener('mouseleave', () => { targetRX = 0; targetRY = 0; schedule(); });
+}
+
+
 
 // ===== Input =====
 const MOVE_KEYS = ['arrowup','arrowdown','arrowleft','arrowright','w','a','s','d'];
@@ -1368,6 +1563,17 @@ window.addEventListener('keydown', e => {
     return;
   }
   if (game.state === 'info') { if (k === 'escape' || k === 'e') closeInfoModal(); return; }
+  // ESC closes how-to-play modal if open
+  if (k === 'escape') {
+    const ht = document.getElementById('howto-modal');
+    if (ht && ht.style.display !== 'none') { closeHowToPlay(); return; }
+  }
+  if (game.state === 'minigame') {
+    if (k === 'escape') {
+      if (window.StockbitMiniGame) window.StockbitMiniGame.close('closed');
+    }
+    return;
+  }
   if (game.state === 'dialog') {
     if (k === 'enter' || k === ' ' || k === 'e') { advanceDialog(); e.preventDefault(); }
     if (k === 'escape') closeDialog();
@@ -1552,7 +1758,7 @@ function setupActionBtn() {
   });
 }
 
-window.QuestGame = { startGame, closeInfoModal, setLanguage, toggleMute, toggleQuestLog };
+window.QuestGame = { startGame, closeInfoModal, setLanguage, toggleMute, toggleQuestLog, openHowToPlay, closeHowToPlay };
 
 document.addEventListener('DOMContentLoaded', () => {
   // Detect real touch device — only then show mobile controls.
@@ -1573,6 +1779,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderTitleScreen();
   setupJoystick();
   setupActionBtn();
+  setupTitle3D();
 });
 
 requestAnimationFrame(loop);
